@@ -1,0 +1,60 @@
+/* line 1, ../../compass/sass/styles.scss */
+body {
+  background-color: #f7f7f7;
+  font-family: 'futura';
+}
+
+/* line 6, ../../compass/sass/styles.scss */
+.App {
+  max-width: 900px;
+  margin: auto;
+  color: #000;
+}
+/* line 10, ../../compass/sass/styles.scss */
+.App p {
+  font-size: 30px;
+  font-style: italic;
+}
+
+/* line 16, ../../compass/sass/styles.scss */
+.nav-container {
+  height: 60px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+/* line 22, ../../compass/sass/styles.scss */
+.brand {
+  display: inline-block;
+}
+/* line 26, ../../compass/sass/styles.scss */
+.brand img {
+  width: 130px;
+}
+
+/* line 31, ../../compass/sass/styles.scss */
+.search-form {
+  display: inline-block;
+  margin-left: 50px;
+}
+
+/* line 37, ../../compass/sass/styles.scss */
+.input-box {
+  width: 450px !important;
+}
+
+/* line 41, ../../compass/sass/styles.scss */
+#search-btn {
+  margin-left: 10px;
+}
+
+/* line 45, ../../compass/sass/styles.scss */
+.sub-menu {
+  background-color: #fff;
+  height: 30px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+/* line 51, ../../compass/sass/styles.scss */
+.sub-menu-left {
+  display: flex;
+}

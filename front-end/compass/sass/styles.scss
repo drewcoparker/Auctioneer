@@ -1,0 +1,53 @@
+body {
+    background-color: #f7f7f7;
+    font-family: 'futura';
+}
+
+.App {
+    max-width: 900px;
+    margin: auto;
+    color: #000;
+    p {
+        font-size: 30px;
+        font-style: italic;
+    }
+}
+
+.nav-container {
+    // margin: 20px;
+    height: 60px;
+    border-bottom: 1px solid rgba(0,0,0,.2);
+}
+
+.brand {
+    display: inline-block;
+    // height: 100%;
+    // line-height: 4;
+    img {
+        width: 130px;
+    }
+}
+
+.search-form {
+    display: inline-block;
+    margin-left: 50px;
+    // margin-top: 20px;
+}
+
+.input-box {
+    width: 450px !important;
+}
+
+#search-btn {
+    margin-left: 10px;
+}
+
+.sub-menu {
+    background-color: #fff;
+    height: 30px;
+    border-bottom: 1px solid rgba(0,0,0,.2);
+}
+
+.sub-menu-left {
+    display: flex;
+}
