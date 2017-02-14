@@ -5,19 +5,21 @@ import App from './App';
 // Styles
 import '../public/stylesheets/styles.css';
 
-// Redux imports
+// Redux, Router imports
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
+import { Router, Route, hashHistory } from 'react-router';
 
 // Reux store for reducers
 import reducers from './reducers/index.js';
 import reduxPromise from 'redux-promise';
-// const theStore = createStore(reducers);
 const theStore = applyMiddleware(reduxPromise)(createStore)
 
 ReactDOM.render(
     <Provider store={theStore(reducers)}>
-        <App />
+        <Router history={hashHistory}>
+            <Route path='/' component={App} />
+        </Router>
     </Provider>,
     document.getElementById('root')
 );

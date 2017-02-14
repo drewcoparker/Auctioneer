@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Navbar from './containers/Navbar.js';
+import Listings from './containers/Listings.js'
 import '../public/stylesheets/styles.css';
 
 class App extends Component {
@@ -7,7 +8,7 @@ class App extends Component {
         return (
             <div className="App">
                 <Navbar />
-                <p>Sanity check...</p>
+                <Listings />
             </div>
         );
     }

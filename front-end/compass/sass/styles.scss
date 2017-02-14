@@ -14,14 +14,14 @@ body {
 }
 
 .nav-container {
-    // margin: 20px;
-    height: 60px;
+
+    height: 70px;
     border-bottom: 1px solid rgba(0,0,0,.2);
 }
 
 .brand {
     display: inline-block;
-    // height: 100%;
+    width: 20%;
     // line-height: 4;
     img {
         width: 130px;
@@ -29,25 +29,65 @@ body {
 }
 
 .search-form {
+    text-align: center;
     display: inline-block;
-    margin-left: 50px;
-    // margin-top: 20px;
+    width: 60%;
 }
 
 .input-box {
-    width: 450px !important;
+    width: 400px !important;
 }
 
 #search-btn {
     margin-left: 10px;
 }
 
+.login {
+    display: inline-block;
+    width: 20%;
+    text-align: right;
+}
+
 .sub-menu {
+    width: 100%;
+    margin: auto;
+    font-size: 12px;
     background-color: #fff;
-    height: 30px;
+    // height: 30px;
     border-bottom: 1px solid rgba(0,0,0,.2);
 }
 
 .sub-menu-left {
+    display: inline-block;
+    padding: 10px;
+    height: 100%;
+    width: 20%;
+    border-right: 1px solid rgba(0,0,0,.2);
+}
+
+.sub-menu-right {
+    // display: inline-block;
+    // margin-left: 40px;
+    // width: 600px;
+
+    display: inline-flex;
+    flex-direction: row;
+    .category {
+        margin-left: 80px;
+        // display: inline-block;
+    }
+}
+
+.listings {
+    border: 1px dashed rgba(0,0,0,.2);
+    height: 900px;
+    // padding: 0 20px;
     display: flex;
+    justify-content: space-between;
+}
+
+.listing-item {
+    border: 1px dashed rgba(0,0,0,.2);
+    height: 250px;
+    width: 300px;
 }

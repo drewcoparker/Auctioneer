@@ -18,13 +18,14 @@ body {
 
 /* line 16, ../../compass/sass/styles.scss */
 .nav-container {
-  height: 60px;
+  height: 70px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 /* line 22, ../../compass/sass/styles.scss */
 .brand {
   display: inline-block;
+  width: 20%;
 }
 /* line 26, ../../compass/sass/styles.scss */
 .brand img {
@@ -33,13 +34,14 @@ body {
 
 /* line 31, ../../compass/sass/styles.scss */
 .search-form {
+  text-align: center;
   display: inline-block;
-  margin-left: 50px;
+  width: 60%;
 }
 
 /* line 37, ../../compass/sass/styles.scss */
 .input-box {
-  width: 450px !important;
+  width: 400px !important;
 }
 
 /* line 41, ../../compass/sass/styles.scss */
@@ -48,13 +50,51 @@ body {
 }
 
 /* line 45, ../../compass/sass/styles.scss */
-.sub-menu {
-  background-color: #fff;
-  height: 30px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+.login {
+  display: inline-block;
+  width: 20%;
+  text-align: right;
 }
 
 /* line 51, ../../compass/sass/styles.scss */
+.sub-menu {
+  width: 100%;
+  margin: auto;
+  font-size: 12px;
+  background-color: #fff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+/* line 60, ../../compass/sass/styles.scss */
 .sub-menu-left {
+  display: inline-block;
+  padding: 10px;
+  height: 100%;
+  width: 20%;
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+/* line 68, ../../compass/sass/styles.scss */
+.sub-menu-right {
+  display: inline-flex;
+  flex-direction: row;
+}
+/* line 75, ../../compass/sass/styles.scss */
+.sub-menu-right .category {
+  margin-left: 80px;
+}
+
+/* line 81, ../../compass/sass/styles.scss */
+.listings {
+  border: 1px dashed rgba(0, 0, 0, 0.2);
+  height: 900px;
   display: flex;
+  justify-content: space-between;
+}
+
+/* line 89, ../../compass/sass/styles.scss */
+.listing-item {
+  border: 1px dashed rgba(0, 0, 0, 0.2);
+  height: 250px;
+  width: 300px;
 }
