@@ -1,7 +1,7 @@
 import $ from 'jquery';
 
 const key = `482c145ce8edf1d69ea5168f9d06460c`;
-const weatherUrl = `api.openweathermap.org/data/2.5/weather?units=imperial&appid=${key}&zip=${zipCode}`;
+const weatherUrl = `api.openweathermap.org/data/2.5/weather?units=imperial&appid=${key}&zip=`;
 
 export default function GetWeather(zipCode) {
     console.log('Action running!');

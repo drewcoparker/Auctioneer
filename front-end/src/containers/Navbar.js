@@ -1,29 +1,13 @@
 import React, { Component } from 'react';
 import { Form, FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap';
-import GetWeather from './actions/FetchWeatherAction.js';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import logo from '../public/images/ebay.png';
+import logo from '../../public/images/ebay.png';
 
 class Navbar extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            zipCode: ''
-        }
-        this.changeZipCode = this.changeZipCode.bind(this);
-        this.getWeather = this.getWeather.bind(this);
-    }
 
-    getWeather(event) {
-        event.preventDefault();
-        console.log(this.state.zipCode);
-    }
-
-    changeZipCode(event) {
-        this.setState({
-            zipCode: event.target.value
-        })
     }
 
     render() {
@@ -35,15 +19,14 @@ class Navbar extends Component {
                     </div>
                     <div className='search-form'>
 
-                        <Form inline onSubmit={this.getWeather}>
+                        <Form inline onSubmit={this}>
                             <FormGroup>
                                 <FormControl className='input-box'
-                                    placeholder="Enter zip code"
-                                    value={this.state.zipCode}
-                                    onChange={this.changeZipCode}/>
+                                    placeholder="Enter item"
+                                    />
                             </FormGroup>
                             <Button id='search-btn' bsStyle="danger" bsSize="small" type="submit">
-                                Search weather
+                                Search
                             </Button>
                         </Form>
 
@@ -62,8 +45,10 @@ class Navbar extends Component {
     }
 }
 
-function mapDispatchToProps(dispatch) {
-    return bindActionCreators({FetchWeather: GetWeather}, dispatch);
-}
+// function mapDispatchToProps(dispatch) {
+//     return bindActionCreators({FetchWeather: GetWeather}, dispatch);
+// }
+//
+// export default connect(null, mapDispatchToProps)(Navbar);
 
-export default connect(null, mapDispatchToProps)(Navbar);
+export default Navbar;

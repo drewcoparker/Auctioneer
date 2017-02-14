@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Form, FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap';
-import GetWeather from '../actions/FetchWeatherAction.js';
+import FetchWeather from '../actions/FetchWeatherAction.js';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import logo from '../../public/images/ebay.png';
@@ -27,6 +27,8 @@ class SearchBar extends Component {
     }
 
     render() {
+        let weatherData = this.props.weatherData;
+
         return(
             <div className='navbar'>
                 <div className='nav-container'>
@@ -46,7 +48,7 @@ class SearchBar extends Component {
                                 Search weather
                             </Button>
                         </Form>
-
+                        {weatherData}
                     </div>
                 </div>
                 <div className='sub-menu'>
@@ -62,8 +64,14 @@ class SearchBar extends Component {
     }
 }
 
-function mapDispatchToProps(dispatch) {
-    return bindActionCreators({GetWeather: GetWeather}, dispatch);
+function mapStateToProps(state) {
+    return {
+        weatherData: state.weather
+    }
 }
 
-export default connect(null, mapDispatchToProps)(SearchBar);
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({FetchWeather: FetchWeather}, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);
