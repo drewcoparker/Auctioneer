@@ -70,7 +70,7 @@ class Listings extends Component {
 
 function mapStateToProps(state) {
     return {
-
+        listingsData: state.listings
     }
 }
 
