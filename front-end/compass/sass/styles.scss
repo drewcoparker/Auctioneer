@@ -96,6 +96,13 @@ body {
     width: 272px;
 }
 
+.listing-img {
+    img {
+        width: 270px;
+        height: 270px;
+    }
+}
+
 .listing-content {
     .title {
         font-size: 12px;
@@ -113,6 +120,16 @@ body {
 }
 
 .login-greeting {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.register-wrapper {
+    margin: 100px auto;
+    max-width: 500px;
+}
+
+.register-greeting {
     text-align: center;
     margin-bottom: 30px;
 }

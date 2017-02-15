@@ -8,7 +8,11 @@ import logo from '../../public/images/ebay.png';
 class Navbar extends Component {
     constructor(props) {
         super(props);
+        this.handleSearchSubmit = this.handleSearchSubmit.bind(this);
+    }
 
+    handleSearchSubmit() {
+        console.log('form submit');
     }
 
     render() {
@@ -20,7 +24,7 @@ class Navbar extends Component {
                     </div>
 
                     <div className='search-form'>
-                        <Form inline onSubmit={this}>
+                        <Form inline onSubmit={this.handleSearchSubmit}>
                             <FormGroup>
                                 <FormControl className='input-box'
                                     placeholder="Enter item"

@@ -4,85 +4,37 @@ import { bindActionCreators } from 'redux';
 import getListingsAction from '../actions/getListingsAction.js';
 
 class Listings extends Component {
-    
 
     componentDidMount() {
         this.props.getListingsData();
+
     }
 
     render() {
-        console.log(this.props.listingsData);
-        // var listings = [];
-        {/*
+        var listings = [];
         this.props.listingsData.map((listing, index) => {
-            listings.push(<div className='listing-item'>
-                <div className='listing-img'>
-                    <img src='http://placehold.it/270x270'></img>
-                </div>
-                <div className='listing-content'>
-                    <div className='title'>Collection</div>
-                    <div className='description'>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing
-                        elit, sed do eiusmod tempor incididunt ut labore et
-                        dolore magna aliqua. Ut enim ad minim veniam, quis
-                        nostrud exercitation ullamco laboris nisi ut aliquip
-                        ex ea commodo consequat.
+            return listings.push(
+                <div key={index} className='listing-item'>
+                    <div className='listing-img'>
+                        <img src={listing.url}></img>
+                    </div>
+                    <div className='listing-content'>
+                        <div className='title'>{listing.title}</div>
+                        <div className='description'>
+                            {listing.description}
+                        </div>
                     </div>
                 </div>
-            </div>)
+            )
         })
-        */}
         return(
             <div className='listings-wrapper'>
                 <h3>Popular listings</h3>
                 <div className='listings'>
-                    <div className='listing-item'>
-                        <div className='listing-img'>
-                            <img src='http://placehold.it/270x270'></img>
-                        </div>
-                        <div className='listing-content'>
-                            <div className='title'>Collection</div>
-                            <div className='description'>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing
-                                elit, sed do eiusmod tempor incididunt ut labore et
-                                dolore magna aliqua. Ut enim ad minim veniam, quis
-                                nostrud exercitation ullamco laboris nisi ut aliquip
-                                ex ea commodo consequat.
-                            </div>
-                        </div>
-                    </div>
 
-                    <div className='listing-item'>
-                        <div className='listing-img'>
-                            <img src='http://placehold.it/270x270'></img>
-                        </div>
-                        <div className='listing-content'>
-                            <div className='title'>Collection</div>
-                            <div className='description'>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing
-                                elit, sed do eiusmod tempor incididunt ut labore et
-                                dolore magna aliqua. Ut enim ad minim veniam, quis
-                                nostrud exercitation ullamco laboris nisi ut aliquip
-                                ex ea commodo consequat.
-                            </div>
-                        </div>
-                    </div>
 
-                    <div className='listing-item'>
-                        <div className='listing-img'>
-                            <img src='http://placehold.it/270x270'></img>
-                        </div>
-                        <div className='listing-content'>
-                            <div className='title'>Collection</div>
-                            <div className='description'>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing
-                                elit, sed do eiusmod tempor incididunt ut labore et
-                                dolore magna aliqua. Ut enim ad minim veniam, quis
-                                nostrud exercitation ullamco laboris nisi ut aliquip
-                                ex ea commodo consequat.
-                            </div>
-                        </div>
-                    </div>
+                    {listings}
+
 
                 </div>
             </div>
