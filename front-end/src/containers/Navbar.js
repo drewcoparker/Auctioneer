@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Form, FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap';
-import { bindActionCreators } from 'redux';
+import { Form, FormGroup, FormControl, Button } from 'react-bootstrap';
+// import { bindActionCreators } from 'redux';
 import { Link } from 'react-router';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 import logo from '../../public/images/ebay.png';
 
 class Navbar extends Component {
@@ -20,7 +20,7 @@ class Navbar extends Component {
             <div className='navbar'>
                 <div className='nav-container'>
                     <div className='brand'>
-                        <img src={logo}/>
+                        <img src={logo} role="presentation"/>
                     </div>
 
                     <div className='search-form'>

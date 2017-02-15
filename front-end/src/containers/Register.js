@@ -28,12 +28,13 @@ class Register extends Component {
     }
 
     render() {
+        var message;
         if (this.props.registerResponse.msg === 'userNameTaken') {
-            var message = 'User name is taken.';
+            message = 'This user name is taken. Please try another.';
         } else if (this.props.registerResponse.msg === 'userInserted'){
-            var message = 'User was inserted!';
+            message = 'User was inserted!';
         } else {
-            var message = 'Please fill out the form to register.';
+            message = 'Please fill out the form to register.';
         }
         return(
             <div className='register-wrapper'>
@@ -86,6 +87,7 @@ class Register extends Component {
                             </Button>
                         </Col>
                     </FormGroup>
+
                 </Form>
             </div>
         )

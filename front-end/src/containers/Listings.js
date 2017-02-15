@@ -16,7 +16,7 @@ class Listings extends Component {
             return listings.push(
                 <div key={index} className='listing-item'>
                     <div className='listing-img'>
-                        <img src={listing.url}></img>
+                        <img src={listing.url} role='presentation'></img>
                     </div>
                     <div className='listing-content'>
                         <div className='title'>{listing.title}</div>
