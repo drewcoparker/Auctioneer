@@ -4,12 +4,34 @@ import { bindActionCreators } from 'redux';
 import getListingsAction from '../actions/getListingsAction.js';
 
 class Listings extends Component {
-    constructor(props) {
-        super(props);
+    
+
+    componentDidMount() {
+        this.props.getListingsData();
     }
 
     render() {
-        this.props.getListingsData();
+        console.log(this.props.listingsData);
+        // var listings = [];
+        {/*
+        this.props.listingsData.map((listing, index) => {
+            listings.push(<div className='listing-item'>
+                <div className='listing-img'>
+                    <img src='http://placehold.it/270x270'></img>
+                </div>
+                <div className='listing-content'>
+                    <div className='title'>Collection</div>
+                    <div className='description'>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing
+                        elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna aliqua. Ut enim ad minim veniam, quis
+                        nostrud exercitation ullamco laboris nisi ut aliquip
+                        ex ea commodo consequat.
+                    </div>
+                </div>
+            </div>)
+        })
+        */}
         return(
             <div className='listings-wrapper'>
                 <h3>Popular listings</h3>

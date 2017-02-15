@@ -1,9 +1,12 @@
 import $ from 'jquery';
 
-export default function() {
-    let promise = $.getJSON('http://localhost:3001/getHomeAuctions');
+var getListingsAction = function() {
+    let thePromise = $.getJSON('http://localhost:3001/getHomeAuctions');
+    console.log('asdf');
     return {
         type: 'GET_LISTINGS',
-        payload: promise
+        payload: thePromise
     }
 }
+
+export default getListingsAction;
