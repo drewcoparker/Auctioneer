@@ -46,7 +46,7 @@ body {
 
 /* line 41, ../../compass/sass/styles.scss */
 #search-btn {
-  margin-left: 10px;
+  margin-left: 5px;
 }
 
 /* line 45, ../../compass/sass/styles.scss */
@@ -59,13 +59,14 @@ body {
 /* line 51, ../../compass/sass/styles.scss */
 .sub-menu {
   width: 100%;
+  display: flex;
   margin: auto;
   font-size: 12px;
   background-color: #fff;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-/* line 60, ../../compass/sass/styles.scss */
+/* line 61, ../../compass/sass/styles.scss */
 .sub-menu-left {
   display: inline-block;
   padding: 10px;
@@ -74,27 +75,54 @@ body {
   border-right: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-/* line 68, ../../compass/sass/styles.scss */
+/* line 69, ../../compass/sass/styles.scss */
 .sub-menu-right {
-  display: inline-flex;
+  width: 80%;
+  display: flex;
+  align-items: center;
   flex-direction: row;
+  justify-content: space-between;
 }
-/* line 75, ../../compass/sass/styles.scss */
+/* line 78, ../../compass/sass/styles.scss */
 .sub-menu-right .category {
-  margin-left: 80px;
+  margin: 0 10px;
 }
 
-/* line 81, ../../compass/sass/styles.scss */
+/* line 85, ../../compass/sass/styles.scss */
 .listings {
   border: 1px dashed rgba(0, 0, 0, 0.2);
   height: 900px;
+  padding: 20px 20px;
   display: flex;
   justify-content: space-between;
 }
 
-/* line 89, ../../compass/sass/styles.scss */
+/* line 93, ../../compass/sass/styles.scss */
 .listing-item {
   border: 1px dashed rgba(0, 0, 0, 0.2);
-  height: 250px;
-  width: 300px;
+  height: 255px;
+  width: 273px;
+}
+
+/* line 100, ../../compass/sass/styles.scss */
+.listing-content .title {
+  font-size: 12px;
+  padding: 5px;
+}
+/* line 104, ../../compass/sass/styles.scss */
+.listing-content .description {
+  padding: 5px;
+  font-size: 10px;
+}
+
+/* line 110, ../../compass/sass/styles.scss */
+.login-wrapper {
+  margin: 100px auto;
+  max-width: 500px;
+}
+
+/* line 115, ../../compass/sass/styles.scss */
+.login-greeting {
+  text-align: center;
+  margin-bottom: 30px;
 }

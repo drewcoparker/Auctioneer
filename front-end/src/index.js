@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import Login from './containers/Login';
 
 // Styles
 import '../public/stylesheets/styles.css';
@@ -19,6 +20,7 @@ ReactDOM.render(
     <Provider store={theStore(reducers)}>
         <Router history={hashHistory}>
             <Route path='/' component={App} />
+            <Route path='/login' component={Login} />
         </Router>
     </Provider>,
     document.getElementById('root')

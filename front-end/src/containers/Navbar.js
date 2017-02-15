@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Form, FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap';
 import { bindActionCreators } from 'redux';
+import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import logo from '../../public/images/ebay.png';
 
@@ -32,7 +33,7 @@ class Navbar extends Component {
                     </div>
 
                     <div className='login'>
-                        Login | Register
+                        <Link to='/login'>Login | Register</Link>
                     </div>
                 </div>
                 <div className='sub-menu'>
@@ -40,11 +41,11 @@ class Navbar extends Component {
                         <span>Create listing</span>
                     </div>
                     <div className='sub-menu-right'>
-                        <div className='category'>Category 1</div>
-                        <div className='category'>Category 2</div>
-                        <div className='category'>Category 3</div>
-                        <div className='category'>Category 4</div>
-                        <div className='category'>Category 5</div>
+                        <div className='category'>Sporting Goods</div>
+                        <div className='category'>Backpacking Gear</div>
+                        <div className='category'>Computing</div>
+                        <div className='category'>Housewares</div>
+                        <div className='category'>Entertainment</div>
                     </div>
                 </div>
             </div>
