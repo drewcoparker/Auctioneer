@@ -13,9 +13,13 @@ var connection = mysql.createConnection({
 });
 connection.connect();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+/* GET top auctions */
+router.get('/getHomeAuctions', function(req, res, next) {
+    var auctionsQuery = `SELECT * FROM auctions INNER JOIN images on images.auction_id = auctions.id limit 10`;
+    connection.query(auctionsQuery, (error, results, fields) => {
+        if (error) throw error;
+        res.json(results);
+    });
 });
 
 module.exports = router;

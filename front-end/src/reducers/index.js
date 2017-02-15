@@ -1,10 +1,8 @@
 import { combineReducers } from 'redux';
-import MovieReducer from './MovieReducer';
-import WeatherReducer from './WeatherReducer';
+import GetListingsReducer from './GetListingsReducer';
 
 const masterReducer = combineReducers({
-    weather: WeatherReducer,
-    movie: MovieReducer
+    listings: GetListingsReducer
 });
 
 export default masterReducer;

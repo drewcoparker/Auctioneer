@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import Login from './containers/Login';
+import Register from './containers/Register';
+import Search from './containers/Search';
 
 // Styles
 import '../public/stylesheets/styles.css';
@@ -21,6 +23,8 @@ ReactDOM.render(
         <Router history={hashHistory}>
             <Route path='/' component={App} />
             <Route path='/login' component={Login} />
+            <Route path='/register' component={Register} />
+            <Route path='/search/:term' component={Search} />
         </Router>
     </Provider>,
     document.getElementById('root')

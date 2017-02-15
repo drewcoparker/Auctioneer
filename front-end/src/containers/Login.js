@@ -10,7 +10,7 @@ class Login extends Component {
         return(
             <div className='login-wrapper'>
                 <div className='login-greeting'>
-                    <h4>Please login to start bidding! New user?</h4>
+                    <h4>Please login to start bidding! New user? <Link to='/register'>Register here</Link>.</h4>
                 </div>
                 <Form horizontal>
                     <FormGroup controlId="formHorizontalEmail">

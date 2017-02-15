@@ -1,15 +1,22 @@
 import React, { Component } from 'react';
-
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import getListingsAction from '../actions/getListingsAction.js';
 
 class Listings extends Component {
+    constructor(props) {
+        super(props);
+    }
+
     render() {
+        this.props.getListingsData();
         return(
             <div className='listings-wrapper'>
                 <h3>Popular listings</h3>
                 <div className='listings'>
                     <div className='listing-item'>
                         <div className='listing-img'>
-                            <img src='http://placehold.it/271x150'></img>
+                            <img src='http://placehold.it/270x270'></img>
                         </div>
                         <div className='listing-content'>
                             <div className='title'>Collection</div>
@@ -25,7 +32,7 @@ class Listings extends Component {
 
                     <div className='listing-item'>
                         <div className='listing-img'>
-                            <img src='http://placehold.it/271x150'></img>
+                            <img src='http://placehold.it/270x270'></img>
                         </div>
                         <div className='listing-content'>
                             <div className='title'>Collection</div>
@@ -41,7 +48,7 @@ class Listings extends Component {
 
                     <div className='listing-item'>
                         <div className='listing-img'>
-                            <img src='http://placehold.it/271x150'></img>
+                            <img src='http://placehold.it/270x270'></img>
                         </div>
                         <div className='listing-content'>
                             <div className='title'>Collection</div>
@@ -61,5 +68,16 @@ class Listings extends Component {
     }
 }
 
+function mapStateToProps(state) {
+    return {
 
-export default Listings;
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({
+        getListingsData: getListingsAction
+    }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Listings);
