@@ -16,13 +16,12 @@ body {
 .nav-container {
 
     height: 70px;
-    border-bottom: 1px solid rgba(0,0,0,.2);
+    border-bottom: 1px solid rgba(0,0,0,.1);
 }
 
 .brand {
     display: inline-block;
     width: 20%;
-    // line-height: 4;
     img {
         width: 130px;
     }
@@ -55,7 +54,7 @@ body {
     font-size: 12px;
     background-color: #fff;
     // height: 30px;
-    border-bottom: 1px solid rgba(0,0,0,.2);
+    border-bottom: 1px solid rgba(0,0,0,.1);
 }
 
 .sub-menu-left {
@@ -66,14 +65,13 @@ body {
     padding: 10px;
     height: 100%;
     width: 20%;
-    border-right: 1px solid rgba(0,0,0,.2);
+    border-right: 1px solid rgba(0,0,0,.1);
 }
 
 .sub-menu-right {
     // display: inline-block;
     // margin-left: 40px;
     width: 80%;
-
     display: flex;
     align-items: center;
     flex-direction: row;
@@ -86,24 +84,33 @@ body {
 }
 
 .listings {
-    border: 1px dashed rgba(0,0,0,.2);
-    height: 900px;
-    padding: 20px 20px;
+    // border: 1px solid rgba(0,0,0,.1);
+    // border-radius: 3px;
+    box-shadow: -1px 0 2px 0 rgba(0,0,0,0.12), 1px 0 2px 0 rgba(0,0,0,0.12), 0 1px 1px 0 rgba(0,0,0,0.24);
+    background-color: #F4F6F7;
+    padding: 10px 10px;
     display: flex;
-    justify-content: space-between;
+    // justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .listing-item {
-    border: 1px dashed rgba(0,0,0,.2);
+    border: 1px solid rgba(0,0,0,.1);
+    border-radius: 3px;
     height: 400px;
     width: 272px;
+    overflow: hidden;
+    // text-overflow: scroll;
+    margin: 10px 10px;
     background-color: #fff;
 }
 
 .listing-img {
+    padding: 15px;
+    border-bottom: 1px solid rgba(0,0,0,.1);
     img {
-        width: 270px;
-        height: 270px;
+        width: 240px;
+        height: 240px;
     }
 }
 

@@ -19,7 +19,7 @@ body {
 /* line 16, ../../compass/sass/styles.scss */
 .nav-container {
   height: 70px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 /* line 22, ../../compass/sass/styles.scss */
@@ -27,46 +27,46 @@ body {
   display: inline-block;
   width: 20%;
 }
-/* line 26, ../../compass/sass/styles.scss */
+/* line 25, ../../compass/sass/styles.scss */
 .brand img {
   width: 130px;
 }
 
-/* line 31, ../../compass/sass/styles.scss */
+/* line 30, ../../compass/sass/styles.scss */
 .search-form {
   text-align: center;
   display: inline-block;
   width: 60%;
 }
 
-/* line 37, ../../compass/sass/styles.scss */
+/* line 36, ../../compass/sass/styles.scss */
 .input-box {
   width: 400px !important;
 }
 
-/* line 41, ../../compass/sass/styles.scss */
+/* line 40, ../../compass/sass/styles.scss */
 #search-btn {
   margin-left: 5px;
 }
 
-/* line 45, ../../compass/sass/styles.scss */
+/* line 44, ../../compass/sass/styles.scss */
 .login {
   display: inline-block;
   width: 20%;
   text-align: right;
 }
 
-/* line 51, ../../compass/sass/styles.scss */
+/* line 50, ../../compass/sass/styles.scss */
 .sub-menu {
   width: 100%;
   display: flex;
   margin: auto;
   font-size: 12px;
   background-color: #fff;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-/* line 61, ../../compass/sass/styles.scss */
+/* line 60, ../../compass/sass/styles.scss */
 .sub-menu-left {
   display: flex;
   align-items: center;
@@ -75,10 +75,10 @@ body {
   padding: 10px;
   height: 100%;
   width: 20%;
-  border-right: 1px solid rgba(0, 0, 0, 0.2);
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-/* line 72, ../../compass/sass/styles.scss */
+/* line 71, ../../compass/sass/styles.scss */
 .sub-menu-right {
   width: 80%;
   display: flex;
@@ -86,64 +86,72 @@ body {
   flex-direction: row;
   justify-content: space-between;
 }
-/* line 81, ../../compass/sass/styles.scss */
+/* line 79, ../../compass/sass/styles.scss */
 .sub-menu-right .category {
   margin: 0 10px;
 }
 
-/* line 88, ../../compass/sass/styles.scss */
+/* line 86, ../../compass/sass/styles.scss */
 .listings {
-  border: 1px dashed rgba(0, 0, 0, 0.2);
-  height: 900px;
-  padding: 20px 20px;
+  box-shadow: -1px 0 2px 0 rgba(0, 0, 0, 0.12), 1px 0 2px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24);
+  background-color: #F4F6F7;
+  padding: 10px 10px;
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
-/* line 96, ../../compass/sass/styles.scss */
+/* line 97, ../../compass/sass/styles.scss */
 .listing-item {
-  border: 1px dashed rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
   height: 400px;
   width: 272px;
+  overflow: hidden;
+  margin: 10px 10px;
   background-color: #fff;
 }
 
-/* line 104, ../../compass/sass/styles.scss */
+/* line 108, ../../compass/sass/styles.scss */
+.listing-img {
+  padding: 15px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+/* line 111, ../../compass/sass/styles.scss */
 .listing-img img {
-  width: 270px;
-  height: 270px;
+  width: 240px;
+  height: 240px;
 }
 
-/* line 111, ../../compass/sass/styles.scss */
+/* line 118, ../../compass/sass/styles.scss */
 .listing-content .title {
   font-size: 12px;
   padding: 5px;
 }
-/* line 115, ../../compass/sass/styles.scss */
+/* line 122, ../../compass/sass/styles.scss */
 .listing-content .description {
   padding: 5px;
   font-size: 10px;
 }
 
-/* line 121, ../../compass/sass/styles.scss */
+/* line 128, ../../compass/sass/styles.scss */
 .login-wrapper {
   margin: 100px auto;
   max-width: 500px;
 }
 
-/* line 126, ../../compass/sass/styles.scss */
+/* line 133, ../../compass/sass/styles.scss */
 .login-greeting {
   text-align: center;
   margin-bottom: 30px;
 }
 
-/* line 131, ../../compass/sass/styles.scss */
+/* line 138, ../../compass/sass/styles.scss */
 .register-wrapper {
   margin: 100px auto;
   max-width: 500px;
 }
 
-/* line 136, ../../compass/sass/styles.scss */
+/* line 143, ../../compass/sass/styles.scss */
 .register-greeting {
   text-align: center;
   margin-bottom: 30px;
