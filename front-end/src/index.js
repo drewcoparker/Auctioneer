@@ -11,7 +11,7 @@ import '../public/stylesheets/styles.css';
 // Redux, Router imports
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
-import { Router, Route, hashHistory } from 'react-router';
+import { Router, Route, browserHistory } from 'react-router';
 
 // Reux store for reducers
 import reducers from './reducers/index.js';
@@ -20,7 +20,7 @@ const theStore = applyMiddleware(reduxPromise)(createStore)
 
 ReactDOM.render(
     <Provider store={theStore(reducers)}>
-        <Router history={hashHistory}>
+        <Router history={browserHistory}>
             <Route path='/' component={App} />
             <Route path='/login' component={Login} />
             <Route path='/register' component={Register} />

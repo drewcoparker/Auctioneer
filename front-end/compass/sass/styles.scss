@@ -99,19 +99,47 @@ body {
     border-radius: 3px;
     height: 400px;
     width: 272px;
-    overflow: hidden;
-    // text-overflow: scroll;
+
     margin: 10px 10px;
     background-color: #fff;
+    .description {
+        height: 55px;
+        overflow: hidden;
+        margin-bottom: 10px;
+    }
+    .current-bid {
+        display: inline-block;
+        width: 50%;
+        height: 30px;
+        padding: 5px;
+    }
+    .end-date {
+        display: inline-block;
+        width: 50%;
+        height: 30px;
+        padding: 5px;
+    }
+}
+
+.listing-item:hover {
+    border: 1px solid rgba(91,187,211,0.8);
+    transition: all .2s;
 }
 
 .listing-img {
     padding: 15px;
+
     border-bottom: 1px solid rgba(0,0,0,.1);
     img {
+        box-shadow: -1px 0 2px 0 rgba(0,0,0,0.12), 1px 0 2px 0 rgba(0,0,0,0.12), 0 1px 1px 0 rgba(0,0,0,0.24);
         width: 240px;
         height: 240px;
     }
+}
+
+.listing-img:hover {
+    border-bottom: 1px solid rgba(91,187,211,0.8);
+    transition: all .2s;
 }
 
 .listing-content {
@@ -143,4 +171,8 @@ body {
 .register-greeting {
     text-align: center;
     margin-bottom: 30px;
+}
+
+.register-link {
+    text-align: right;
 }

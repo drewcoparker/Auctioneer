@@ -23,6 +23,12 @@ class Listings extends Component {
                         <div className='description'>
                             {listing.description}
                         </div>
+                        <div className='current-bid'>
+                            ${listing.current_bid}
+                        </div>
+                        <div className='end-date'>
+
+                        </div>
                     </div>
                 </div>
             )

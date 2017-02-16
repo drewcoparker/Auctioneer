@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var mysql = require('mysql');
 var config = require('../public/javascripts/config.js');
-
+var randtoken = require('rand-token');
 // MySql module
 var mysql  = require('mysql');
 var connection = mysql.createConnection({
@@ -27,9 +27,41 @@ router.get('/getHomeAuctions', function(req, res, next) {
     });
 });
 
+// Login authentification
+router.post('/login', (req, res, next) => {
+    var username = req.body.username;
+    var password = req.body.password;
+    // res.json(req.body);
+    var checkLoginQuery = `SELECT * FROM users WHERE username = ?`;
+    connection.query(checkLoginQuery, [username], (error, results) => {
+        if (error) throw error;
+        if (results.length === 0) {
+            res.json({
+                msg: 'badUsername' // Not a valid username
+            });
+        } else {
+            checkHash = bcrypt.compareSync(password, results[0].password);
+            if (checkHash) {
+                var token = randtoken.uid(40);
+                var insertToken = `UPDATE users SET token=?, token_exp=DATE_ADD(NOW(), INTERVAL 1 HOUR) WHERE username = ?`;
+                connection.query(insertToken, [token, username], (error2, results2) => {
+                    console.log(token);
+                    res.json({
+                        msg: 'loginSuccess',
+                        token: token // Found user and password is validated
+                    });
+                });
+            } else {
+                res.json({
+                    msg: 'wrongPassword' // Found user but password doesn't match
+                });
+            }
+        }
+    });
+});
+
 // Make a register post route to handle registration!
 router.post('/register', (req, res, next)=>{
-
     var name = req.body.name;
     var username = req.body.username;
     var email = req.body.email;
