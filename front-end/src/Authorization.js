@@ -3,8 +3,7 @@ import { Link } from 'react-router';
 
 class Authorization extends Component {
     render() {
-        console.log(this.props);
-        if (this.props) {
+        if (this.props.name === '') {
             return(
                 <div>
                     <Link to='/login'>Login </Link>|<Link to='/register'> Register</Link>
@@ -13,7 +12,7 @@ class Authorization extends Component {
         } else {
             return(
                 <div>
-                    {this.props.name}
+                    Welcome {this.props.name}!
                 </div>
             )
         }

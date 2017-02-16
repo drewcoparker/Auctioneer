@@ -1,19 +1,23 @@
 import React, { Component } from 'react';
 import { Form, FormGroup, FormControl, Button } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import { Link } from 'react-router';
 import logo from '../../public/images/ebay.png';
 import Authorization from '../Authorization.js'
 
 class Navbar extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            loginName: ''
+        }
         this.handleSearchSubmit = this.handleSearchSubmit.bind(this);
     }
 
     componentDidMount() {
-        if (this.props.loginResponse ===  'null') {
-
+        if (this.props.authorization !==  null) {
+            this.setState({
+                loginName: this.props.authorization.name
+            })
         }
     }
 
@@ -43,7 +47,7 @@ class Navbar extends Component {
                     </div>
 
                     <div className='login'>
-                        <Authorization />
+                        <Authorization name={this.state.loginName}/>
                     </div>
                 </div>
                 <div className='sub-menu'>
@@ -65,9 +69,8 @@ class Navbar extends Component {
 }
 
 function mapStateToProps(state) {
-    console.log(state.login);
     return {
-        loginResponse: state.login
+        authorization: state.login
     }
 }
 
