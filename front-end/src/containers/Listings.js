@@ -7,7 +7,6 @@ class Listings extends Component {
 
     componentDidMount() {
         this.props.getListingsData();
-
     }
 
     render() {

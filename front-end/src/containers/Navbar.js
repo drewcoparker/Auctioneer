@@ -1,14 +1,20 @@
 import React, { Component } from 'react';
 import { Form, FormGroup, FormControl, Button } from 'react-bootstrap';
-// import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import { Link } from 'react-router';
-// import { connect } from 'react-redux';
 import logo from '../../public/images/ebay.png';
+import Authorization from '../Authorization.js'
 
 class Navbar extends Component {
     constructor(props) {
         super(props);
         this.handleSearchSubmit = this.handleSearchSubmit.bind(this);
+    }
+
+    componentDidMount() {
+        if (this.props.loginResponse ===  'null') {
+
+        }
     }
 
     handleSearchSubmit() {
@@ -37,7 +43,7 @@ class Navbar extends Component {
                     </div>
 
                     <div className='login'>
-                        <Link to='/login'>Login </Link>|<Link to='/register'> Register</Link>
+                        <Authorization />
                     </div>
                 </div>
                 <div className='sub-menu'>
@@ -58,10 +64,11 @@ class Navbar extends Component {
     }
 }
 
-// function mapDispatchToProps(dispatch) {
-//     return bindActionCreators({FetchWeather: GetWeather}, dispatch);
-// }
-//
-// export default connect(null, mapDispatchToProps)(Navbar);
+function mapStateToProps(state) {
+    console.log(state.login);
+    return {
+        loginResponse: state.login
+    }
+}
 
-export default Navbar;
+export default connect(mapStateToProps, null)(Navbar);

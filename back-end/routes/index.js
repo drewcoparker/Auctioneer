@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var mysql = require('mysql');
 var config = require('../public/javascripts/config.js');
+var bcrypt = require('bcrypt-nodejs');
 var randtoken = require('rand-token');
 // MySql module
 var mysql  = require('mysql');
@@ -12,11 +13,6 @@ var connection = mysql.createConnection({
     database : config.database
 });
 connection.connect();
-
-var bcrypt = require('bcrypt-nodejs');
-
-
-
 
 /* GET top auctions */
 router.get('/getHomeAuctions', function(req, res, next) {
@@ -48,6 +44,7 @@ router.post('/login', (req, res, next) => {
                     console.log(token);
                     res.json({
                         msg: 'loginSuccess',
+                        name: results[0].name,
                         token: token // Found user and password is validated
                     });
                 });
