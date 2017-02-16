@@ -59,7 +59,10 @@ body {
 }
 
 .sub-menu-left {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
     padding: 10px;
     height: 100%;
     width: 20%;
@@ -94,6 +97,7 @@ body {
     border: 1px dashed rgba(0,0,0,.2);
     height: 400px;
     width: 272px;
+    background-color: #fff;
 }
 
 .listing-img {

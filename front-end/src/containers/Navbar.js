@@ -42,7 +42,8 @@ class Navbar extends Component {
                 </div>
                 <div className='sub-menu'>
                     <div className='sub-menu-left'>
-                        <span>Create listing</span>
+                        <div>Create listing</div>
+                        <div>My Listings</div>
                     </div>
                     <div className='sub-menu-right'>
                         <div className='category'>Sporting Goods</div>

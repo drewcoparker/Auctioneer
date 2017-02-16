@@ -31,11 +31,7 @@ class Listings extends Component {
             <div className='listings-wrapper'>
                 <h3>Popular listings</h3>
                 <div className='listings'>
-
-
                     {listings}
-
-
                 </div>
             </div>
         )

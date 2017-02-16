@@ -13,6 +13,11 @@ var connection = mysql.createConnection({
 });
 connection.connect();
 
+var bcrypt = require('bcrypt-nodejs');
+
+
+
+
 /* GET top auctions */
 router.get('/getHomeAuctions', function(req, res, next) {
     var auctionsQuery = `SELECT * FROM auctions INNER JOIN images on images.auction_id = auctions.id limit 10`;
@@ -24,10 +29,11 @@ router.get('/getHomeAuctions', function(req, res, next) {
 
 // Make a register post route to handle registration!
 router.post('/register', (req, res, next)=>{
+
     var name = req.body.name;
     var username = req.body.username;
     var email = req.body.email;
-    var password = req.body.password;
+    var password = bcrypt.hashSync(req.body.password);
 
     var checkDupeUserQuery = 'SELECT * FROM users WHERE username = ?';
     connection.query(checkDupeUserQuery, [username], (dupeError, results, fields) => {
