@@ -94,4 +94,10 @@ router.get('/getListingItem/:listingId', (req, res, next) => {
     })
 })
 
+
+// Submit bid post
+router.post('/submitBid', (req, res, next) => {
+    res.json(req.body);
+})
+
 module.exports = router;
