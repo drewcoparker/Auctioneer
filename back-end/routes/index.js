@@ -41,7 +41,6 @@ router.post('/login', (req, res, next) => {
                 var token = randtoken.uid(40);
                 var insertToken = `UPDATE users SET token=?, token_exp=DATE_ADD(NOW(), INTERVAL 1 HOUR) WHERE username = ?`;
                 connection.query(insertToken, [token, username], (error2, results2) => {
-                    console.log(token);
                     res.json({
                         msg: 'loginSuccess',
                         name: results[0].name,
@@ -97,7 +96,32 @@ router.get('/getListingItem/:listingId', (req, res, next) => {
 
 // Submit bid post
 router.post('/submitBid', (req, res, next) => {
-    res.json(req.body);
-})
+    var bid = req.body.bidAmount;
+    var id = req.body.listingId;
+    var bidder = req.body.userToken;
+    var selectBidQuery = `SELECT current_bid FROM auctions WHERE id = ?`;
+    connection.query(selectBidQuery, [id], (error, results) => {
+        if ((bid < results[0].current_bid) || (bid < results[0].starting_bid)) {
+            res.json({
+                msg: 'bidTooLow'
+            });
+        } else {
+            // Bid is successful (not too low)
+            var getUserQuery = `SELECT id FROM users WHERE token = ?`;
+            connection.query(getUserQuery, [bidder], (error2, results2) => {
+                if (results2.length > 0) {
+                    var insertBidQuery = `UPDATE auctions SET high_bidder_id = ?, current_bid = ? WHERE id = ?)`;
+                    connection.query(insertBidQuery, [results2[0].id, bid, id], (error3, results3) => {
+                        if (error3) throw error3;
+                        res.json({
+                            msg: 'bidSuccess',
+                            newBid: bid
+                        });
+                    });
+                }
+            });
+        }
+    });
+});
 
 module.exports = router;

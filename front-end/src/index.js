@@ -26,6 +26,7 @@ ReactDOM.render(
             <Route path='/login' component={Login} />
             <Route path='/register' component={Register} />
             <Route path='/search/:term' component={Search} />
+            <Route path='/listing/:listingId' component={ListingItem} />
         </Router>
     </Provider>,
     document.getElementById('root')

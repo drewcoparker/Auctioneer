@@ -25,6 +25,7 @@ class Login extends Component {
                 message: 'Wrong username and/or password.'
             });
         } else if (this.props.loginResponse.msg === 'loginSuccess'){
+            localStorage.setItem('token', this.props.loginResponse.token);
             browserHistory.push('/');
         }
     }

@@ -51,7 +51,7 @@ function mapDispatchToProps(dispatch) {
     return bindActionCreators({
         getListingItem: ListingItemAction,
         submitBidToExpress: SubmitBidAction
-    })
+    }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ListingItem)

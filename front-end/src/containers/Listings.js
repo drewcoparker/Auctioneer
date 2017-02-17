@@ -14,10 +14,11 @@ class Listings extends Component {
     render() {
         var listings = [];
         this.props.listingsData.map((listing, index) => {
+            var link = '/listing/' + listing.id;
             return listings.push(
                 <div key={index} className='listing-item'>
                     <div className='listing-img'>
-                        <Link to='/bid/asdf'>
+                        <Link to={link}>
                             <img src={listing.url} role='presentation'></img>
                         </Link>
                     </div>
