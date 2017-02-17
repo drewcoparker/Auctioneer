@@ -83,4 +83,15 @@ router.post('/register', (req, res, next)=>{
     });
 });
 
+
+// GET the listing item for the item's detail page
+router.get('/getListingItem/:listingId', (req, res, next) => {
+    var listingId = req.params.listingId;
+    var getListingQuery = `SELECT * FROM auctions LEFT JOIN images on images.auction_id = auctions.id LEFT JOIN users on users.id = auctions.user_id WHERE auctions.id = ?`;
+    connection.query(getListingQuery, [listingId], (error, results) => {
+        if (error) throw error;
+        res.json(results);
+    })
+})
+
 module.exports = router;

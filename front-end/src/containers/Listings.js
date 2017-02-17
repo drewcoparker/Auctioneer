@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { Button } from 'react-bootstrap';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 import { bindActionCreators } from 'redux';
 import getListingsAction from '../actions/getListingsAction.js';
 
@@ -15,7 +17,9 @@ class Listings extends Component {
             return listings.push(
                 <div key={index} className='listing-item'>
                     <div className='listing-img'>
-                        <img src={listing.url} role='presentation'></img>
+                        <Link to='/bid/asdf'>
+                            <img src={listing.url} role='presentation'></img>
+                        </Link>
                     </div>
                     <div className='listing-content'>
                         <div className='title'>{listing.title}</div>
@@ -26,6 +30,11 @@ class Listings extends Component {
                             ${listing.current_bid}
                         </div>
                         <div className='end-date'>
+                            <div className='bid-btn'>
+                                <Button bsStyle="success" bsSize="xsmall">
+                                    Bid
+                                </Button>
+                            </div>
 
                         </div>
                     </div>

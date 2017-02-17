@@ -4,6 +4,7 @@ import App from './App';
 import Login from './containers/Login';
 import Register from './containers/Register';
 import Search from './containers/Search';
+import ListingItem from './containers/ListingItem';
 
 // Styles
 import '../public/stylesheets/styles.css';
