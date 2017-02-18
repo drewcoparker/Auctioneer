@@ -17,10 +17,27 @@ import { Router, Route, browserHistory } from 'react-router';
 // Reux store for reducers
 import reducers from './reducers/index.js';
 import reduxPromise from 'redux-promise';
-const theStore = applyMiddleware(reduxPromise)(createStore)
+
+// Persistent state
+import { loadState, saveState } from './localStorage';
+// const theStore = applyMiddleware(reduxPromise)(createStore)
+const persistedState = loadState();
+const store = createStore(
+    reducers,
+    persistedState,
+    applyMiddleware(
+        reduxPromise
+    )
+)
+
+store.subscribe(() => {
+    saveState({
+        token: store.getState().login.token
+    });
+});
 
 ReactDOM.render(
-    <Provider store={theStore(reducers)}>
+    <Provider store={store}>
         <Router history={browserHistory}>
             <Route path='/' component={App} />
             <Route path='/login' component={Login} />
