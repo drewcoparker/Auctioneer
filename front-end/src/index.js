@@ -32,7 +32,7 @@ const store = createStore(
 
 store.subscribe(() => {
     saveState({
-        token: store.getState().login.token
+        login: store.getState().login
     });
 });
 
