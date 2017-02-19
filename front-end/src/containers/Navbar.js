@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Form, FormGroup, FormControl, Button } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import logo from '../../public/images/ebay.png';
-import Authorization from '../Authorization.js'
+import Authorization from './Authorization.js'
 
 class Navbar extends Component {
     constructor(props) {

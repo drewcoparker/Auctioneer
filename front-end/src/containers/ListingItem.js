@@ -42,8 +42,7 @@ class ListingItem extends Component {
 
 function mapStateToProps(state) {
     return {
-        listingData: state.listing,
-        // userToken: state.login.token
+        listingData: state.listing
     }
 }
 
