@@ -5,6 +5,6 @@ export default function GetListingsReducer (state = [], action) {
         case 'GET_LISTINGS':
             return action.payload;
         default:
+            return state;
     }
-    return state;
 }

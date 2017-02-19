@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+
 import GetListingsReducer from './GetListingsReducer';
 import RegisterReducer from './RegisterReducer';
 import LoginReducer from './LoginReducer';

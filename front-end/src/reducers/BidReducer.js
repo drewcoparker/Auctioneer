@@ -4,7 +4,6 @@ export default function(state = null, action){
             console.log(action.payload);
 			return action.payload;
 		default:
-
+			return state;
 	}
-	return state;
 }

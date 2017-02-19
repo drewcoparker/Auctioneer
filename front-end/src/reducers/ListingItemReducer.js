@@ -3,6 +3,6 @@ export default function (state = null, action) {
         case 'GET_LISTING_ID':
             return action.payload;
         default:
+            return state;
     }
-    return state;
 }

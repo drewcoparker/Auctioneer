@@ -3,7 +3,6 @@ export default function(state = [], action){
 		case "REGISTER":
 			return action.payload;
 		default:
-			
+			return state;
 	}
-	return state;
 }
