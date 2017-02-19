@@ -18,15 +18,7 @@ class Authorization extends Component {
                 this.setState({
                     isLoggedIn: true
                 })
-            } else {
-                this.setState({
-                    isLoggedIn: false
-                })
             }
-        } else {
-            this.setState({
-                isLoggedIn: false
-            })
         }
     }
 
