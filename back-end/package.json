@@ -16,6 +16,7 @@
     "mysql": "^2.13.0",
     "pug": "^2.0.0-beta11",
     "rand-token": "^0.3.0",
-    "serve-favicon": "~2.3.0"
+    "serve-favicon": "~2.3.0",
+    "stripe": "^4.15.0"
   }
 }

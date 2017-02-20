@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import $ from 'jquery'
+import { Button } from 'react-bootstrap';
 import ListingItemAction from '../actions/ListingItemAction';
 import SubmitBidAction from '../actions/SubmitBidAction';
 
@@ -8,6 +10,7 @@ class ListingItem extends Component {
     constructor(props) {
         super(props);
         this.submitBid = this.submitBid.bind(this);
+        this.makePayment = this.makePayment.bind(this);
     }
     componentDidMount() {
         this.props.getListingItem();
@@ -33,16 +36,51 @@ class ListingItem extends Component {
         }
     }
 
+    makePayment() {
+        var handler = window.StripeCheckout.configure({
+            key: 'pk_test_At6FBgV0uygrKlJ76ivhxgDv',
+            locale: 'auto',
+            token: (token) => {
+                var theData = {
+                    amount: 10 * 100,
+                    stripeToken: token.id,
+                    userToken: this.props.tokenData,
+                }
+                $.ajax({
+                    method: 'POST',
+                    url: 'http://localhost:3001/stripe',
+                    data: theData
+                }).done((data) => {
+                    console.log(data);
+                    if (data.msg === 'paymentSuccess') {
+
+                    }
+                });
+            }
+        });
+        handler.open({
+            name: "Buy item",
+            description: 'Pay for your auction',
+            amount: 10 * 100
+        })
+    }
+
     render() {
         return(
-            <div></div>
+            <div>
+                <Button bsStyle="success" onClick={this.makePayment}>
+                    Buy now
+                </Button>
+            </div>
         )
     }
 }
 
 function mapStateToProps(state) {
+    console.log(state);
     return {
-        listingData: state.listing
+        listingData: state.listing,
+        tokenData: state
     }
 }
 

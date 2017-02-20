@@ -12,10 +12,12 @@ class Listings extends Component {
     }
 
     render() {
-        console.log(this.props.listingsData);
         var listings = [];
         this.props.listingsData.map((listing, index) => {
             var link = '/listing/' + listing.id;
+            // var now = new Date();
+            // var endDate = new Date(listing.end_date);
+            // var timeLeft = now.getTime() - endDate.getTime();
             return listings.push(
                 <div key={index} className='listing-item'>
                     <div className='listing-img'>

@@ -4,6 +4,7 @@ var mysql = require('mysql');
 var config = require('../public/javascripts/config.js');
 var bcrypt = require('bcrypt-nodejs');
 var randtoken = require('rand-token');
+var stripe = require('stripe')(config.stripeToken);
 // MySql module
 var mysql  = require('mysql');
 var connection = mysql.createConnection({
@@ -119,6 +120,28 @@ router.post('/submitBid', (req, res, next) => {
                         });
                     });
                 }
+            });
+        }
+    });
+});
+
+
+// Post stripe token
+router.post('/stripe', (req, res, next) => {
+    var user = req.body.userToken;
+    stripe.charges.create({
+        amount: req.body.amount,
+        currency: 'usd',
+        source: req.body.stripeToken,
+        description: 'Charges for asdf@example.com'
+    }, (err, charge) => {
+        if (err) {
+            res.json({
+                msg: 'errorProcessing'
+            });
+        } else {
+            res.json({
+                msg: 'paymentSuccess'
             });
         }
     });
