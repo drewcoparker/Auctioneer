@@ -107,12 +107,6 @@ body {
         overflow: hidden;
         margin-bottom: 10px;
     }
-    .current-bid {
-        display: inline-block;
-        width: 50%;
-        height: 30px;
-        padding: 5px;
-    }
     .end-date {
         display: inline-block;
         width: 50%;
@@ -128,12 +122,20 @@ body {
 
 .listing-img {
     padding: 15px;
-
+    position: relative;
     border-bottom: 1px solid rgba(0,0,0,.1);
     img {
         box-shadow: -1px 0 2px 0 rgba(0,0,0,0.12), 1px 0 2px 0 rgba(0,0,0,0.12), 0 1px 1px 0 rgba(0,0,0,0.24);
         width: 240px;
         height: 240px;
+    }
+    .current-bid {
+        position: absolute;
+        top: 15px;
+        color: #fff;
+        background-color: rgba(35,171,133,0.8);
+        padding: 5px;
+        border-bottom-right-radius: 5px;
     }
 }
 
@@ -144,6 +146,7 @@ body {
 
 .listing-content {
     .title {
+        text-align: center;
         font-size: 12px;
         padding: 5px;
     }

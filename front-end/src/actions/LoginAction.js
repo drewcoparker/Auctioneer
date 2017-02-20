@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import axios from 'axios';
+// import axios from 'axios';
 
 export default function(loginData){
 	var thePromise = $.ajax({
