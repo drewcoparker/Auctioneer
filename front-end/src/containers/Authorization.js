@@ -26,7 +26,7 @@ class Authorization extends Component {
         if (this.state.isLoggedIn === true) {
             return(
                 <div>
-                    Welcome {this.props.login.name}
+                    Welcome {this.props.name}
                 </div>
             )
         } else {

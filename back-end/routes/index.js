@@ -44,7 +44,7 @@ router.post('/login', (req, res, next) => {
                 connection.query(insertToken, [token, username], (error2, results2) => {
                     res.json({
                         msg: 'loginSuccess',
-                        name: results[0].name,
+                        name: results[0].username,
                         token: token // Found user and password is validated
                     });
                 });

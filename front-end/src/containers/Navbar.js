@@ -37,7 +37,7 @@ class Navbar extends Component {
                         <Form inline onSubmit={this.handleSearchSubmit}>
                             <FormGroup>
                                 <FormControl className='input-box'
-                                    placeholder="Enter item"
+                                    placeholder="Search for stuff"
                                     />
                             </FormGroup>
                             <Button id='search-btn' bsStyle="danger" bsSize="small" type="submit">
