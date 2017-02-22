@@ -15,6 +15,12 @@ var connection = mysql.createConnection({
 });
 connection.connect();
 
+// Multer module
+var multer = require('multer');
+var upload = multer({dest: 'public/images'});
+var type = upload.single('imageToUpload');
+var fs = require('fs');
+
 /* GET top auctions */
 router.get('/getHomeAuctions', function(req, res, next) {
     var auctionsQuery = `SELECT * FROM auctions INNER JOIN images on images.auction_id = auctions.id limit 10`;
