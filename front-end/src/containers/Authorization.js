@@ -1,32 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import { connect } from 'react-redux';
 
 class Authorization extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            isLoggedIn: false
-        }
-    }
-
-    componentDidMount() {
-        var login = this.props.login;
-        if (login !== null) {
-            var msg = this.props.login.msg;
-            if (msg === 'loginSuccess') {
-                this.setState({
-                    isLoggedIn: true
-                })
-            }
-        }
-    }
 
     render() {
-        if (this.state.isLoggedIn === true) {
+        if (this.props.loggedIn) {
             return(
                 <div>
-                    Welcome {this.props.name}
+                    Welcome {this.props.loginName}
                 </div>
             )
         } else {
@@ -39,11 +20,4 @@ class Authorization extends Component {
     }
 }
 
-
-function mapStateToProps(state) {
-    return {
-        login: state.login
-    }
-}
-
-export default connect(mapStateToProps, null)(Authorization);
+export default Authorization;

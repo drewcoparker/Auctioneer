@@ -90,6 +90,13 @@ router.post('/register', (req, res, next)=>{
 });
 
 
+// Create a listing (user must be logged in)
+router.post('/createListing', (req, res, body) => {
+    var token = req.body.token
+    var tempPath = req.file.path
+    var targetPath = `public/images/${req.file.originalname}`;
+});
+
 // GET the listing item for the item's detail page
 router.get('/getListingItem/:listingId', (req, res, next) => {
     var listingId = req.params.listingId;

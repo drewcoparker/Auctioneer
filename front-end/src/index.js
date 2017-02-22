@@ -5,6 +5,7 @@ import Login from './containers/Login';
 import Register from './containers/Register';
 import Search from './containers/Search';
 import ListingItem from './containers/ListingItem';
+import CreateListing from './containers/CreateListing';
 
 // Styles
 import '../public/stylesheets/styles.css';
@@ -42,6 +43,7 @@ ReactDOM.render(
             <Route path='/' component={App} />
             <Route path='/login' component={Login} />
             <Route path='/register' component={Register} />
+            <Route path='/create' component={CreateListing} />
             <Route path='/search/:term' component={Search} />
             <Route path='/listing/:listingId' component={ListingItem} />
         </Router>

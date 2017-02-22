@@ -3,21 +3,28 @@ import { Form, FormGroup, FormControl, Button } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import logo from '../../public/images/ebay.png';
 import Authorization from './Authorization.js'
+import UserListingPanel from './UserListingPanel.js'
 
 class Navbar extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            loginName: ''
+            loginName: '',
+            isLoggedIn: false
         }
         this.handleSearchSubmit = this.handleSearchSubmit.bind(this);
     }
 
     componentDidMount() {
-        if (this.props.authorization !==  null) {
-            this.setState({
-                loginName: this.props.authorization.name
-            })
+        var login = this.props.login;
+        if (login !== null) {
+            var msg = this.props.login.msg;
+            if (msg === 'loginSuccess') {
+                this.setState({
+                    isLoggedIn: true,
+                    loginName: this.props.login.name
+                })
+            }
         }
     }
 
@@ -36,25 +43,29 @@ class Navbar extends Component {
                     <div className='search-form'>
                         <Form inline onSubmit={this.handleSearchSubmit}>
                             <FormGroup>
-                                <FormControl className='input-box'
+                                <FormControl
+                                    className='input-box'
                                     placeholder="Search for stuff"
-                                    />
+                                />
                             </FormGroup>
-                            <Button id='search-btn' bsStyle="danger" bsSize="small" type="submit">
+                            <Button
+                                id='search-btn'
+                                bsStyle="danger"
+                                bsSize="small"
+                                type="submit">
                                 Search
                             </Button>
                         </Form>
                     </div>
-
                     <div className='login'>
-                        <Authorization name={this.state.loginName}/>
+                        <Authorization
+                            loggedIn={this.state.isLoggedIn}
+                            loginName={this.state.loginName}
+                        />
                     </div>
                 </div>
                 <div className='sub-menu'>
-                    <div className='sub-menu-left'>
-                        <div>Create listing</div>
-                        <div>My Listings</div>
-                    </div>
+                    <UserListingPanel loggedIn={this.state.isLoggedIn} />
                     <div className='sub-menu-right'>
                         <div className='category'>Sporting Goods</div>
                         <div className='category'>Backpacking Gear</div>
@@ -70,7 +81,7 @@ class Navbar extends Component {
 
 function mapStateToProps(state) {
     return {
-        authorization: state.login
+        login: state.login
     }
 }
 
