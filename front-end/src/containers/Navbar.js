@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Form, FormGroup, FormControl, Button } from 'react-bootstrap';
 import { connect } from 'react-redux';
+import Modal from 'react-modal';
 import logo from '../../public/images/ebay.png';
 import Authorization from './Authorization.js'
 import UserListingPanel from './UserListingPanel.js'
@@ -10,9 +11,13 @@ class Navbar extends Component {
         super(props);
         this.state = {
             loginName: '',
-            isLoggedIn: false
+            isLoggedIn: false,
+            modalIsOpen: false
         }
         this.handleSearchSubmit = this.handleSearchSubmit.bind(this);
+        this.openModal = this.openModal.bind(this);
+        this.afterOpenModal = this.afterOpenModal.bind(this);
+        this.closeModal = this.closeModal.bind(this);
     }
 
     componentDidMount() {
@@ -26,6 +31,18 @@ class Navbar extends Component {
                 })
             }
         }
+    }
+
+    openModal() {
+
+    }
+
+    afterOpenModal() {
+
+    }
+
+    closeModal() {
+
     }
 
     handleSearchSubmit() {
