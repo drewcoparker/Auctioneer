@@ -197,3 +197,9 @@ body {
 .register-link {
   text-align: right;
 }
+
+/* line 187, ../../compass/sass/styles.scss */
+.create-listing-wrapper {
+  margin: 100px auto;
+  max-width: 500px;
+}
