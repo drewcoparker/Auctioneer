@@ -7,25 +7,30 @@ import CreateListingAction from '../actions/CreateListingAction';
 class CreateListing extends Component {
     constructor(props) {
         super(props);
-        this.handleCreateListingSubmit = this.handleCreateListingSubmit.bind(this)
+        this.handleCreateListingSubmit = this.handleCreateListingSubmit.bind(this);
+        this.handleFileUploadChange = this.handleFileUploadChange.bind(this);
     }
 
     handleCreateListingSubmit(event) {
         event.preventDefault();
         console.dir(event.target.elements);
         let title = event.target.elements[0].value;
-        let img = event.target.elements[1].files[0];
+        let imgFile = event.target.elements[1].files[0];
         let description = event.target.elements[2].value;
         let usd = event.target.elements[3].valueAsNumber;
         let utc = event.target.elements[4].valueAsNumber;
 
         this.props.createListing({
             title: title,
-            img: img,
+            imgFile: imgFile,
             description: description,
             usd: usd,
             utc: utc
         });
+    }
+
+    handleFileUploadChange(event) {
+        console.dir(event);
     }
 
     render() {
@@ -35,21 +40,22 @@ class CreateListing extends Component {
                     encType='multipart/form-data'
                     onSubmit={this.handleCreateListingSubmit}>
 
-                    <FormGroup id='listing-title-input' >
+                    <FormGroup controlId="formControlsText" >
                         <ControlLabel>Title</ControlLabel>
                         <FormControl
                             type="text"
                             placeholder="Enter a title for your item" />
                     </FormGroup>
 
-                    <FormGroup id='listing-img-input'>
+                    <FormGroup controlId="formControlsFile">
                         <ControlLabel>Image File</ControlLabel>
                         <FormControl
+                            onChange={this.handleFileUploadChange}
                             type="file" />
                         <HelpBlock>Choose an image of your item</HelpBlock>
                     </FormGroup>
 
-                    <FormGroup controlId="formControlsTextarea">
+                    <FormGroup controlId="formControlsTextarea" >
                         <ControlLabel>Description</ControlLabel>
                         <FormControl
                             componentClass="textarea"
