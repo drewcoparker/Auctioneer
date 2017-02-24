@@ -34,7 +34,6 @@ router.get('/getHomeAuctions', function(req, res, next) {
 router.post('/login', (req, res, next) => {
     var username = req.body.username;
     var password = req.body.password;
-    // res.json(req.body);
     var checkLoginQuery = `SELECT * FROM users WHERE username = ?`;
     connection.query(checkLoginQuery, [username], (error, results) => {
         if (error) throw error;
@@ -91,10 +90,14 @@ router.post('/register', (req, res, next)=>{
 
 
 // Create a listing (user must be logged in)
-router.post('/createListing', (req, res, body) => {
-    var token = req.body.token
-    var tempPath = req.file.path
-    var targetPath = `public/images/${req.file.originalname}`;
+router.post('/createListing', (req, res, next) => {
+    var title = req.body.title
+    var file = req.body.img
+    var desc = req.body.description
+    var usd = req.body.usd
+    var utc = req.body.utc
+    // res.json(req.body);
+
 });
 
 // GET the listing item for the item's detail page
@@ -104,8 +107,8 @@ router.get('/getListingItem/:listingId', (req, res, next) => {
     connection.query(getListingQuery, [listingId], (error, results) => {
         if (error) throw error;
         res.json(results);
-    })
-})
+    });
+});
 
 
 // Submit bid post

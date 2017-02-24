@@ -7,32 +7,42 @@ import CreateListingAction from '../actions/CreateListingAction';
 class CreateListing extends Component {
     constructor(props) {
         super(props);
+        this.handleCreateListingSubmit = this.handleCreateListingSubmit.bind(this)
     }
 
     handleCreateListingSubmit(event) {
         event.preventDefault();
-        console.dir(event.target);
-        // var username = event.target[0].value;
-        // var password = event.target[1].value;
-        // this.props.loginAction({
-        //     username: username,
-        //     password: password
-        // });
+        console.dir(event.target.elements);
+        let title = event.target.elements[0].value;
+        let img = event.target.elements[1].files[0];
+        let description = event.target.elements[2].value;
+        let usd = event.target.elements[3].valueAsNumber;
+        let utc = event.target.elements[4].valueAsNumber;
+
+        this.props.createListing({
+            title: title,
+            img: img,
+            description: description,
+            usd: usd,
+            utc: utc
+        });
     }
 
     render() {
         return(
             <div className='create-listing-wrapper'>
-                <Form horizontal onSubmit={this.handleCreateListingSubmit}>
+                <Form
+                    encType='multipart/form-data'
+                    onSubmit={this.handleCreateListingSubmit}>
 
-                    <FormGroup controlId="formControlsText" >
+                    <FormGroup id='listing-title-input' >
                         <ControlLabel>Title</ControlLabel>
                         <FormControl
                             type="text"
                             placeholder="Enter a title for your item" />
                     </FormGroup>
 
-                    <FormGroup controlId="formControlsFile">
+                    <FormGroup id='listing-img-input'>
                         <ControlLabel>Image File</ControlLabel>
                         <FormControl
                             type="file" />
@@ -50,9 +60,7 @@ class CreateListing extends Component {
                         <ControlLabel>Starting Bid Price</ControlLabel>
                         <InputGroup>
                             <InputGroup.Addon>$</InputGroup.Addon>
-                                <FormControl type="number" />
-                            <InputGroup.Addon>¢</InputGroup.Addon>
-                                <FormControl type="number" maxLength="2" />
+                                <FormControl type="number" step="0.01"/>
                         </InputGroup>
                     </FormGroup>
 

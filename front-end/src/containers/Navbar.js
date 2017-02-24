@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Form, FormGroup, FormControl, Button } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import Modal from 'react-modal';
+// import Modal from 'react-modal';
 import logo from '../../public/images/ebay.png';
 import Authorization from './Authorization.js'
 import UserListingPanel from './UserListingPanel.js'

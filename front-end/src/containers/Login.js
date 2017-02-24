@@ -31,13 +31,12 @@ class Login extends Component {
 
     handleLoginSubmit(event) {
         event.preventDefault();
-        console.dir(event);
-        // var username = event.target[0].value;
-        // var password = event.target[1].value;
-        // this.props.loginAction({
-        //     username: username,
-        //     password: password
-        // });
+        var username = event.target[0].value;
+        var password = event.target[1].value;
+        this.props.loginAction({
+            username: username,
+            password: password
+        });
     }
 
     render() {
@@ -74,7 +73,7 @@ class Login extends Component {
                         </Col>
                     </FormGroup>
                 </Form>
-                
+
                 <div className='register-link'>
                     New user? <Link to='/register'>Register here</Link>
                 </div>
