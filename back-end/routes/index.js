@@ -97,6 +97,7 @@ router.post('/createListing', type, (req, res, next) => {
     var desc = req.body.description
     var usd = req.body.usd
     var utc = req.body.utc
+    // res.json(req.files)
     console.log(req.body);
 
 });

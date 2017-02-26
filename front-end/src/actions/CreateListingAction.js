@@ -7,8 +7,10 @@ export default function(createListingData) {
 		method: "POST",
 		url: "http://localhost:3001/createListing",
         processData: false,
+        dataType: 'json',
+        cache: false,
         data: createListingData,
-        // contentType: false
+        contentType: false
 	});
 	return{
 		type: "CREATE_LISTING",

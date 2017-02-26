@@ -30,7 +30,7 @@ class CreateListing extends Component {
     }
 
     handleFileUploadChange(event) {
-        console.dir(event);
+        console.dir(event.target);
     }
 
     render() {
