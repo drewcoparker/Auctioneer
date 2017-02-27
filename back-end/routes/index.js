@@ -22,7 +22,7 @@ var type = upload.single('imageToUpload');
 var fs = require('fs');
 
 /* GET top auctions */
-router.get('/getHomeAuctions', function(req, res, next) {
+router.get('/getHomeAuctions', (req, res, next) => {
     var auctionsQuery = `SELECT * FROM auctions INNER JOIN images on images.auction_id = auctions.id limit 10`;
     connection.query(auctionsQuery, (error, results, fields) => {
         if (error) throw error;
@@ -34,7 +34,6 @@ router.get('/getHomeAuctions', function(req, res, next) {
 router.post('/login', (req, res, next) => {
     var username = req.body.username;
     var password = req.body.password;
-    console.log(req.body);
     var checkLoginQuery = `SELECT * FROM users WHERE username = ?`;
     connection.query(checkLoginQuery, [username], (error, results) => {
         if (error) throw error;
@@ -99,6 +98,7 @@ router.post('/createListing', type, (req, res, next) => {
     var utc = req.body.utc
     // res.json(req.files)
     console.log(req.body);
+    var getUserQuery = `SELECT id FROM users WHERE token = ?`;
 
 });
 

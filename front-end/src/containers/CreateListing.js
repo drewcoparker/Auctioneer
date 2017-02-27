@@ -13,7 +13,6 @@ class CreateListing extends Component {
 
     handleCreateListingSubmit(event) {
         event.preventDefault();
-        console.dir(event.target.elements);
         let title = event.target.elements[0].value;
         let imgFile = event.target.elements[1].files[0];
         let description = event.target.elements[2].value;
@@ -21,6 +20,7 @@ class CreateListing extends Component {
         let utc = event.target.elements[4].valueAsNumber;
 
         this.props.createListing({
+
             title: title,
             imgFile: imgFile,
             description: description,
@@ -50,7 +50,6 @@ class CreateListing extends Component {
                     <FormGroup controlId="formControlsFile">
                         <ControlLabel>Image File</ControlLabel>
                         <FormControl
-                            onChange={this.handleFileUploadChange}
                             type="file" />
                         <HelpBlock>Choose an image of your item</HelpBlock>
                     </FormGroup>

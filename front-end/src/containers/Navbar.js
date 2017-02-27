@@ -82,7 +82,8 @@ class Navbar extends Component {
                     </div>
                 </div>
                 <div className='sub-menu'>
-                    <UserListingPanel loggedIn={this.state.isLoggedIn} />
+                    <UserListingPanel
+                        loggedIn={this.state.isLoggedIn} />
                     <div className='sub-menu-right'>
                         <div className='category'>Sporting Goods</div>
                         <div className='category'>Backpacking Gear</div>
