@@ -18,7 +18,7 @@ connection.connect();
 // Multer module
 var multer = require('multer');
 var upload = multer({dest: 'public/images'});
-var type = upload.single('imageToUpload');
+var type = upload.single('imgFile');
 var fs = require('fs');
 
 /* GET top auctions */
@@ -91,13 +91,23 @@ router.post('/register', (req, res, next)=>{
 
 // Create a listing (user must be logged in)
 router.post('/createListing', type, (req, res, next) => {
+
     var title = req.body.title
-    var file = req.body.img
     var desc = req.body.description
     var usd = req.body.usd
     var utc = req.body.utc
+
+    var tempPath = req.file.path
+    var targetPath = `public/images${req.file.originalname}`;
+
     // res.json(req.files)
-    console.log(req.body);
+    console.log(req.file);
+    fs.readFile(tempPath, (fsError, fsContents) => {
+        fs.writeFile(targetPath,)
+    })
+
+
+
     var getUserQuery = `SELECT id FROM users WHERE token = ?`;
 
 });
