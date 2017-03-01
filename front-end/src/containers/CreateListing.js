@@ -12,7 +12,7 @@ class CreateListing extends Component {
     }
 
     componentDidMount() {
-        console.log(this.props.loginData);
+
     }
 
     handleCreateListingSubmit(event) {
@@ -32,10 +32,6 @@ class CreateListing extends Component {
             end: end,
             start: start
         });
-    }
-
-    handleFileUploadChange(event) {
-        console.dir(event.target);
     }
 
     render() {

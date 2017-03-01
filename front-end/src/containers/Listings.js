@@ -9,20 +9,20 @@ class Listings extends Component {
 
     componentDidMount() {
         this.props.getListingsData();
+
     }
 
     render() {
         var listings = [];
         this.props.listingsData.map((listing, index) => {
             var link = '/listing/' + listing.id;
-            // var now = new Date();
-            // var endDate = new Date(listing.end_date);
-            // var timeLeft = now.getTime() - endDate.getTime();
+            var src = `http://localhost:3001/images/${listing.url}`;
+            console.log(src);
             return listings.push(
                 <div key={index} className='listing-item'>
                     <div className='listing-img'>
                         <Link to={link}>
-                            <img src={listing.url} role='presentation'></img>
+                            <img src={src} role='presentation'></img>
                         </Link>
                         <div className='current-bid'>
                             ${listing.current_bid}

@@ -107,8 +107,8 @@ router.post('/createListing', type, (req, res, next) => {
     connection.query(getUserQuery, [token], (error1, results1) => {
         if (error1) throw error1;
         userId = results1[0].id;
-        var insertListingQuery = `INSERT INTO auctions (user_id, title, description, starting_bid, start_date, end_date) VALUES (?, ?, ?, ?, ?, ?)`;
-        connection.query(insertListingQuery, [userId, title, desc, usd, start, end], (error2, results2) => {
+        var insertListingQuery = `INSERT INTO auctions (user_id, title, description, starting_bid, current_bid, start_date, end_date) VALUES (?, ?, ?, ?, ?, ?, ?)`;
+        connection.query(insertListingQuery, [userId, title, desc, usd, usd, start, end], (error2, results2) => {
             if (error2) throw error2;
             auctionId = results2.insertId;
             var insertImgQuery = `INSERT INTO images (auction_id, url) VALUES (?, ?)`;
