@@ -9,7 +9,6 @@ class Listings extends Component {
 
     componentDidMount() {
         this.props.getListingsData();
-
     }
 
     render() {
@@ -17,7 +16,6 @@ class Listings extends Component {
         this.props.listingsData.map((listing, index) => {
             var link = '/listing/' + listing.id;
             var src = `http://localhost:3001/images/${listing.url}`;
-            console.log(src);
             return listings.push(
                 <div key={index} className='listing-item'>
                     <div className='listing-img'>
@@ -45,7 +43,7 @@ class Listings extends Component {
                     </div>
                 </div>
             )
-        })
+        });
         return(
             <div className='listings-wrapper'>
                 <h3>Popular listings</h3>

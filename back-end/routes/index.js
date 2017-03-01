@@ -23,7 +23,7 @@ var fs = require('fs');
 
 /* GET top auctions */
 router.get('/getHomeAuctions', (req, res, next) => {
-    var auctionsQuery = `SELECT * FROM auctions INNER JOIN images on images.auction_id = auctions.id limit 10`;
+    var auctionsQuery = `SELECT * FROM auctions INNER JOIN images on images.auction_id = auctions.id`;
     connection.query(auctionsQuery, (error, results, fields) => {
         if (error) throw error;
         res.json(results);
