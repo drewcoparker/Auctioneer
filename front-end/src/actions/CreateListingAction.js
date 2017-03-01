@@ -3,11 +3,13 @@ import $ from 'jquery';
 
 export default function(createListingData) {
     var formData = new FormData();
-    formData.append('title', 'asdf');
+    formData.append('title', createListingData.title);
     formData.append('imgFile', createListingData.imgFile);
     formData.append('description', createListingData.description);
     formData.append('usd', createListingData.usd);
-    formData.append('utc', createListingData.utc);
+    formData.append('end', createListingData.end);
+    formData.append('token', createListingData.token)
+    formData.append('start', createListingData.start)
 
 	var thePromise = $.ajax({
 		method: "POST",

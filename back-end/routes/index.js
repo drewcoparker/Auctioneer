@@ -91,25 +91,43 @@ router.post('/register', (req, res, next)=>{
 
 // Create a listing (user must be logged in)
 router.post('/createListing', type, (req, res, next) => {
-
-    var title = req.body.title
-    var desc = req.body.description
-    var usd = req.body.usd
-    var utc = req.body.utc
-
-    var tempPath = req.file.path
-    var targetPath = `public/images${req.file.originalname}`;
-
-    // res.json(req.files)
-    console.log(req.file);
-    fs.readFile(tempPath, (fsError, fsContents) => {
-        fs.writeFile(targetPath,)
-    })
-
-
+    var token = req.body.token;
+    var title = req.body.title;
+    var desc = req.body.description;
+    var usd = req.body.usd;
+    var end = req.body.end;
+    var start = req.body.start;
+    var userId = '';
+    var auctionId = '';
+    var tempPath = req.file.path;
+    var imgName = req.file.originalname;
+    var targetPath = `public/images/${imgName}`;
 
     var getUserQuery = `SELECT id FROM users WHERE token = ?`;
-
+    connection.query(getUserQuery, [token], (error1, results1) => {
+        if (error1) throw error1;
+        userId = results1[0].id;
+        var insertListingQuery = `INSERT INTO auctions (user_id, title, description, starting_bid, start_date, end_date) VALUES (?, ?, ?, ?, ?, ?)`;
+        connection.query(insertListingQuery, [userId, title, desc, usd, start, end], (error2, results2) => {
+            if (error2) throw error2;
+            auctionId = results2.insertId;
+            var insertImgQuery = `INSERT INTO images (auction_id, url) VALUES (?, ?)`;
+            fs.readFile(tempPath, (readError, readContents) => {
+                fs.writeFile(targetPath, readContents, (writeError) => {
+                    if (writeError) throw writeError;
+                    connection.query(insertImgQuery, [auctionId, imgName], (error3, results3) => {
+                        if (error3) throw error3;
+                        fs.unlink(tempPath, (unlinkError) => {
+                            if (unlinkError) throw unlinkError;
+                            res.json({
+                                msg: `Listing ${auctionId} created`
+                            });
+                        });
+                    });
+                });
+            });
+        });
+    });
 });
 
 // GET the listing item for the item's detail page

@@ -11,21 +11,26 @@ class CreateListing extends Component {
         this.handleFileUploadChange = this.handleFileUploadChange.bind(this);
     }
 
+    componentDidMount() {
+        console.log(this.props.loginData);
+    }
+
     handleCreateListingSubmit(event) {
         event.preventDefault();
         let title = event.target.elements[0].value;
         let imgFile = event.target.elements[1].files[0];
         let description = event.target.elements[2].value;
         let usd = event.target.elements[3].valueAsNumber;
-        let utc = event.target.elements[4].valueAsNumber;
-
+        let end = Math.floor((event.target.elements[4].valueAsNumber) / 1000);
+        let start = Math.floor(Date.now() / 1000);
         this.props.createListing({
-
+            token: this.props.loginData.token,
             title: title,
             imgFile: imgFile,
             description: description,
             usd: usd,
-            utc: utc
+            end: end,
+            start: start
         });
     }
 
@@ -87,11 +92,11 @@ class CreateListing extends Component {
     }
 }
 
-// function mapStateToProps(state) {
-//     return {
-//
-//     }
-// }
+function mapStateToProps(state) {
+    return {
+        loginData: state.login
+    }
+}
 
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({
@@ -99,4 +104,4 @@ function mapDispatchToProps(dispatch) {
     }, dispatch)
 }
 
-export default connect(null, mapDispatchToProps)(CreateListing);
+export default connect(mapStateToProps, mapDispatchToProps)(CreateListing);
