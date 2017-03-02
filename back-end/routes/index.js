@@ -21,13 +21,13 @@ var upload = multer({dest: 'public/images'});
 var type = upload.single('imgFile');
 var fs = require('fs');
 
-/* GET top auctions */
+// GET all auctions
 router.get('/getHomeAuctions/:subcat', (req, res, next) => {
     console.log(req.params.subcat);
     if (req.params.subcat == "Home") {
-        var auctionsQuery = `SELECT * FROM auctions INNER JOIN images on images.auction_id = auctions.id`;
+        var auctionsQuery = `SELECT * FROM auctions INNER JOIN images on images.auction_id=auctions.id`;
     } else {
-        var auctionsQuery = `SELECT * FROM auctions INNER JOIN images on images.auction_id = auctions.id INNER JOIN categories ON auctions.category_id = categories.id WHERE categories.category_name = '${req.params.subcat}'` ;
+        var auctionsQuery = `SELECT * FROM auctions INNER JOIN images on images.auction_id=auctions.id INNER JOIN categories ON auctions.category_id=categories.id WHERE categories.category_name='${req.params.subcat}'` ;
         console.log(auctionsQuery);
     }
     connection.query(auctionsQuery, (error, results, fields) => {
@@ -36,14 +36,15 @@ router.get('/getHomeAuctions/:subcat', (req, res, next) => {
     });
 });
 
+
 // Get all the user's listings
 router.post('/myListings', (req, res, next) => {
     var token = req.body.token
-    var getUserQuery = `SELECT id FROM users WHERE token = ?`;
+    var getUserQuery = `SELECT id FROM users WHERE token=?`;
     connection.query(getUserQuery, [token], (error1, results1) => {
         if (error1) throw error1;
         let userId = results1[0].id;
-        var myListingsQuery = `SELECT * FROM auctions INNER JOIN images on images.auction_id = auctions.id WHERE user_id = ?`;
+        var myListingsQuery = `SELECT * FROM auctions INNER JOIN images on images.auction_id=auctions.id WHERE user_id=?`;
         connection.query(myListingsQuery, [userId], (error2, results2) => {
             if (error2) throw error2;
             if (results2.length === 0) {
@@ -57,11 +58,12 @@ router.post('/myListings', (req, res, next) => {
     });
 });
 
+
 // Login authentification
 router.post('/login', (req, res, next) => {
     var username = req.body.username;
     var password = req.body.password;
-    var checkLoginQuery = `SELECT * FROM users WHERE username = ?`;
+    var checkLoginQuery = `SELECT * FROM users WHERE username=?`;
     connection.query(checkLoginQuery, [username], (error, results) => {
         if (error) throw error;
         if (results.length === 0) {
@@ -72,7 +74,7 @@ router.post('/login', (req, res, next) => {
             checkHash = bcrypt.compareSync(password, results[0].password);
             if (checkHash) {
                 var token = randtoken.uid(40);
-                var insertToken = `UPDATE users SET token=?, token_exp=DATE_ADD(NOW(), INTERVAL 1 HOUR) WHERE username = ?`;
+                var insertToken = `UPDATE users SET token=?, token_exp=DATE_ADD(NOW(), INTERVAL 1 HOUR) WHERE username=?`;
                 connection.query(insertToken, [token, username], (error2, results2) => {
                     res.json({
                         msg: 'loginSuccess',
@@ -89,6 +91,20 @@ router.post('/login', (req, res, next) => {
     });
 });
 
+
+// Logout user by destroying the auth token
+router.post('/logout', (req, res, next) => {
+    var token = req.body.token;
+    var destroyTokenQuery = `UPDATE users SET token=NULL, token_exp=NULL WHERE token=?`;
+    connectin.query(destroyTokenQuery, [token], (error, results) => {
+        if (error) throw error;
+        res.json({
+            msg: 'logoutSuccess'
+        });
+    });
+});
+
+
 // Make a register post route to handle registration!
 router.post('/register', (req, res, next)=>{
     var name = req.body.name;
@@ -96,7 +112,7 @@ router.post('/register', (req, res, next)=>{
     var email = req.body.email;
     var password = bcrypt.hashSync(req.body.password);
 
-    var checkDupeUserQuery = 'SELECT * FROM users WHERE username = ?';
+    var checkDupeUserQuery = 'SELECT * FROM users WHERE username=?';
     connection.query(checkDupeUserQuery, [username], (dupeError, results, fields) => {
         if (dupeError) throw dupeError;
         if (results.length === 0) {
@@ -156,6 +172,7 @@ router.post('/createListing', type, (req, res, next) => {
         });
     });
 });
+
 
 // GET the listing item for the item's detail page
 router.get('/getListingItem/:listingId', (req, res, next) => {

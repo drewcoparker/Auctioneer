@@ -15,14 +15,22 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { Router, Route, browserHistory } from 'react-router';
 
-// Reux store for reducers
+// Redux store for reducers
 import reducers from './reducers/index.js';
 import reduxPromise from 'redux-promise';
 
-// Persistent state
+// A token is generated from the backend when the user logs in.
+// loadState and saveState are methods to save to and retrieve this token to
+// local storage. This allows the user to reamin logged in while navigating
+// througout the app and even after she leaves closes the browser and returns
+// to the page.
 import { loadState, saveState } from './localStorage';
-// const theStore = applyMiddleware(reduxPromise)(createStore)
 const persistedState = loadState();
+
+// Instantiate the store obect with createStore method. The reducers param is
+// required. I also pass the login token retreived from locals storage as
+// persistedState. Finally, reduxPromise middleware is passed to assist in my
+// ajax requests.
 const store = createStore(
     reducers,
     persistedState,
@@ -30,10 +38,11 @@ const store = createStore(
         reduxPromise
     )
 )
-
+// Catch the login state when the login action is dispatched. Save this piece of
+// state to local storage.
 store.subscribe(() => {
     saveState({
-        login: store.getState().login
+        login: store.getState().auth
     });
 });
 

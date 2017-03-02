@@ -1,5 +1,4 @@
 import { combineReducers } from 'redux';
-
 import GetListingsReducer from './GetListingsReducer';
 import RegisterReducer from './RegisterReducer';
 import LoginReducer from './LoginReducer';
@@ -10,7 +9,7 @@ import CreateListingReducer from './CreateListingReducer';
 const masterReducer = combineReducers({
     listings: GetListingsReducer,
     register: RegisterReducer,
-    login: LoginReducer,
+    auth: LoginReducer,
     listingItem: ListingItemReducer,
     bid: BidReducer,
     lastCreatedListing: CreateListingReducer

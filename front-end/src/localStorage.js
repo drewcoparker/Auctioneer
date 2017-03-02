@@ -1,3 +1,6 @@
+// Persist state methods. These methods write and retrieve state from
+// local storage.
+
 export const loadState = () => {
     try {
         const serializedState = localStorage.getItem('state');
@@ -11,10 +14,8 @@ export const loadState = () => {
 }
 
 export const saveState = (state) => {
-
     try {
         const serializedState = JSON.stringify(state);
-
         localStorage.setItem('state', serializedState);
     } catch (error) {
         // Ignoring but logging

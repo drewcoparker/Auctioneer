@@ -41,10 +41,27 @@ body {
     margin-left: 5px;
 }
 
-.login {
+.auth {
     display: inline-block;
     width: 20%;
     text-align: right;
+}
+
+.login, .logout {
+    display: inline-block;
+}
+
+.logout {
+    margin-left: 10px;
+    span {
+        background-color: rgba(57, 147, 221, 0.8);
+        color: #fff;
+        padding: 5px;
+        border-radius: 3px;
+        &:hover {
+            cursor: pointer;
+        }
+    }
 }
 
 .sub-menu {

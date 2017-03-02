@@ -16,15 +16,16 @@ class Login extends Component {
     }
 
     componentDidUpdate() {
-        if (this.props.loginResponse.msg === 'badUsername') {
+        var response = this.props.loginResponse.msg;
+        if (response === 'badUsername') {
             this.setState({
-                message: 'Wrong username and/or password.'
+                message: 'Wrong username.'
             });
-        } else if (this.props.loginResponse.msg === 'wrongPassword') {
+        } else if (response === 'wrongPassword') {
             this.setState({
-                message: 'Wrong username and/or password.'
+                message: 'Wrong password.'
             });
-        } else if (this.props.loginResponse.msg === 'loginSuccess') {
+        } else if (response === 'loginSuccess') {
             browserHistory.push('/');
         }
     }
@@ -84,7 +85,7 @@ class Login extends Component {
 
 function mapStateToProps(state) {
     return {
-        loginResponse: state.login
+        loginResponse: state.auth
     }
 }
 

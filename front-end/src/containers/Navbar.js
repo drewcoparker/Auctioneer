@@ -76,7 +76,7 @@ class Navbar extends Component {
                             </Button>
                         </Form>
                     </div>
-                    <div className='login'>
+                    <div className='auth'>
                         <Authorization
                             loggedIn={this.state.isLoggedIn}
                             loginName={this.state.loginName}
@@ -102,7 +102,7 @@ class Navbar extends Component {
 
 function mapStateToProps(state) {
     return {
-        login: state.login
+        login: state.auth
     }
 }
 
