@@ -6,13 +6,22 @@ import { bindActionCreators } from 'redux';
 import getListingsAction from '../actions/getListingsAction.js';
 
 class Listings extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            listingsHeading: 'All listings'
+        }
+    }
 
     componentDidMount() {
         if (this.props.cat === "my-listings") {
+            // Get the user's listings
             this.props.getListingsData("my-listings", this.props.login.token);
         } else if (this.props.cat) {
+            // Get the listings that match the category supplied by the router
             this.props.getListingsData(this.props.cat);
         } else {
+            // Get all listings
             this.props.getListingsData("Home");
         }
     }
@@ -20,16 +29,24 @@ class Listings extends Component {
     componentWillReceiveProps(nextProps){
         if (this.props.cat !== nextProps.cat) {
             if (nextProps.cat === "my-listings") {
+                // Get the user's listings
                 this.props.getListingsData("my-listings", this.props.login.token);
             } else if(nextProps.cat) {
+                // Get the listings that match the category supplied by the router
                 this.props.getListingsData(nextProps.cat);
             } else {
+                // Get all listings
                 this.props.getListingsData("Home");
             }
         }
     }
 
     render() {
+        var category = this.props.cat;
+        var heading = 'all listings';
+        if (category !== undefined) {
+            heading = category;
+        }
         var listings = [];
         this.props.listingsData.map((listing, index) => {
             var link = '/listing/' + listing.id;
@@ -64,7 +81,7 @@ class Listings extends Component {
         });
         return(
             <div className='listings-wrapper'>
-                <h3>Popular listings</h3>
+                <h3>{heading}</h3>
                 <div className='listings'>
                     {listings}
                 </div>
