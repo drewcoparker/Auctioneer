@@ -8,7 +8,25 @@ import getListingsAction from '../actions/getListingsAction.js';
 class Listings extends Component {
 
     componentDidMount() {
-        this.props.getListingsData();
+        if (this.props.cat === "mylistings") {
+            this.props.getListingsData(this.props.login.token, "mylistings");
+        } else if (this.props.cat) {
+            this.props.getListingsData(this.props.login.token, this.props.cat);
+        } else {
+            this.props.getListingsData(this.props.login.token, "Home");
+        }
+    }
+
+    componentWillReceiveProps(nextProps){
+        if (this.props.cat !== nextProps.cat) {
+            if (nextProps.cat === "mylistings") {
+                this.props.getListingsData(this.props.login.token, "mylistings");
+            } else if(nextProps.cat) {
+                this.props.getListingsData(this.props.login.token, nextProps.cat);
+            } else {
+                this.props.getListingsData(this.props.login.token, "Home");
+            }
+        }
     }
 
     render() {
@@ -57,7 +75,8 @@ class Listings extends Component {
 
 function mapStateToProps(state) {
     return {
-        listingsData: state.listings
+        listingsData: state.listings,
+        login: state.login
     }
 }
 

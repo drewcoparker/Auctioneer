@@ -8,7 +8,6 @@ class CreateListing extends Component {
     constructor(props) {
         super(props);
         this.handleCreateListingSubmit = this.handleCreateListingSubmit.bind(this);
-        this.handleFileUploadChange = this.handleFileUploadChange.bind(this);
     }
 
     componentDidMount() {

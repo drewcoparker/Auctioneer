@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 import logo from '../../public/images/ebay.png';
 import Authorization from './Authorization.js'
 import UserListingPanel from './UserListingPanel.js'
+import { Link } from 'react-router';
+
 
 class Navbar extends Component {
     constructor(props) {
@@ -54,7 +56,7 @@ class Navbar extends Component {
             <div className='navbar'>
                 <div className='nav-container'>
                     <div className='brand'>
-                        <img src={logo} role="presentation"/>
+                        <Link to='/'><img src={logo} role="presentation"/></Link>
                     </div>
 
                     <div className='search-form'>
@@ -85,8 +87,8 @@ class Navbar extends Component {
                     <UserListingPanel
                         loggedIn={this.state.isLoggedIn} />
                     <div className='sub-menu-right'>
-                        <div className='category'>Sporting Goods</div>
-                        <div className='category'>Backpacking Gear</div>
+                        <div className='category'><Link to='/auctions/backpacking'>Sporting Goods</Link></div>
+                        <div className='category'><Link to='/auctions/backpacking'>Backpacking Gear</Link></div>
                         <div className='category'>Computing</div>
                         <div className='category'>Housewares</div>
                         <div className='category'>Entertainment</div>

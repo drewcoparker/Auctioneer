@@ -46,6 +46,7 @@ ReactDOM.render(
             <Route path='/create' component={CreateListing} />
             <Route path='/search/:term' component={Search} />
             <Route path='/listing/:listingId' component={ListingItem} />
+            <Route path='/auctions/:subcat' component={App} />
         </Router>
     </Provider>,
     document.getElementById('root')
