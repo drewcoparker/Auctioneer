@@ -87,11 +87,12 @@ class Navbar extends Component {
                     <UserListingPanel
                         loggedIn={this.state.isLoggedIn} />
                     <div className='sub-menu-right'>
-                        <div className='category'><Link to='/auctions/backpacking'>Sporting Goods</Link></div>
-                        <div className='category'><Link to='/auctions/backpacking'>Backpacking Gear</Link></div>
-                        <div className='category'>Computing</div>
-                        <div className='category'>Housewares</div>
-                        <div className='category'>Entertainment</div>
+                        <div className='category'><Link to='/items/automotive'>Automotive</Link></div>
+                        <div className='category'><Link to='/items/backpacking'>Backpacking Gear</Link></div>
+                        <div className='category'><Link to='/items/computing'>Computing</Link></div>
+                        <div className='category'><Link to='/items/music'>Music</Link></div>
+                        <div className='category'><Link to='/items/books'>Books</Link></div>
+                        <div className='category'><Link to='/items/stuff'>Stuff</Link></div>
                     </div>
                 </div>
             </div>

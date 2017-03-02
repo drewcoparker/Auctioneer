@@ -24,9 +24,9 @@ var fs = require('fs');
 /* GET top auctions */
 router.get('/getHomeAuctions/:subcat', (req, res, next) => {
     console.log(req.params.subcat);
-    if(req.params.subcat == "Home"){
+    if (req.params.subcat == "Home") {
         var auctionsQuery = `SELECT * FROM auctions INNER JOIN images on images.auction_id = auctions.id`;
-    }else{
+    } else {
         var auctionsQuery = `SELECT * FROM auctions INNER JOIN images on images.auction_id = auctions.id INNER JOIN categories ON auctions.category_id = categories.id WHERE categories.category_name = '${req.params.subcat}'` ;
         console.log(auctionsQuery);
     }
@@ -39,11 +39,9 @@ router.get('/getHomeAuctions/:subcat', (req, res, next) => {
 // Get all the user's listings
 router.post('/myListings', (req, res, next) => {
     var token = req.body.token
-    // console.log(token);
     var getUserQuery = `SELECT id FROM users WHERE token = ?`;
     connection.query(getUserQuery, [token], (error1, results1) => {
         if (error1) throw error1;
-        // console.log(token);
         let userId = results1[0].id;
         var myListingsQuery = `SELECT * FROM auctions INNER JOIN images on images.auction_id = auctions.id WHERE user_id = ?`;
         connection.query(myListingsQuery, [userId], (error2, results2) => {

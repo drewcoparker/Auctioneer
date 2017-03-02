@@ -1,10 +1,10 @@
 
 import $ from 'jquery';
 
-export default function(token,category) {
+export default function(category, token=null) {
     var url;
     var promise;
-    if(category === "mylistings"){
+    if(category === "my-listings"){
         url = "http://localhost:3001/myListings";
         promise = $.ajax({
     		method: "POST",
@@ -12,7 +12,7 @@ export default function(token,category) {
     		data: {token: token}
     	});
     }else{
-        url = 'http://localhost:3001/getHomeAuctions/'+category;
+        url = 'http://localhost:3001/getHomeAuctions/' + category;
         promise = $.getJSON(url);
     }
 

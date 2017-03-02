@@ -8,7 +8,7 @@ class UserListingPanel extends Component {
             return(
                 <div className='sub-menu-left'>
                     <div><Link to='/create'>Create listing</Link></div>
-                    <div><Link to='/auctions/mylistings'>My listings</Link></div>
+                    <div><Link to='/items/my-listings'>My listings</Link></div>
                 </div>
             )
         } else {

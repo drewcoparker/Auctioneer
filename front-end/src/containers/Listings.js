@@ -8,23 +8,23 @@ import getListingsAction from '../actions/getListingsAction.js';
 class Listings extends Component {
 
     componentDidMount() {
-        if (this.props.cat === "mylistings") {
-            this.props.getListingsData(this.props.login.token, "mylistings");
+        if (this.props.cat === "my-listings") {
+            this.props.getListingsData("my-listings", this.props.login.token);
         } else if (this.props.cat) {
-            this.props.getListingsData(this.props.login.token, this.props.cat);
+            this.props.getListingsData(this.props.cat);
         } else {
-            this.props.getListingsData(this.props.login.token, "Home");
+            this.props.getListingsData("Home");
         }
     }
 
     componentWillReceiveProps(nextProps){
         if (this.props.cat !== nextProps.cat) {
-            if (nextProps.cat === "mylistings") {
-                this.props.getListingsData(this.props.login.token, "mylistings");
+            if (nextProps.cat === "my-listings") {
+                this.props.getListingsData("my-listings", this.props.login.token);
             } else if(nextProps.cat) {
-                this.props.getListingsData(this.props.login.token, nextProps.cat);
+                this.props.getListingsData(nextProps.cat);
             } else {
-                this.props.getListingsData(this.props.login.token, "Home");
+                this.props.getListingsData("Home");
             }
         }
     }
