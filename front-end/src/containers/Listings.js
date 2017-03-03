@@ -16,7 +16,7 @@ class Listings extends Component {
     componentDidMount() {
         if (this.props.cat === "my-listings") {
             // Get the user's listings
-            this.props.getListingsData("my-listings", this.props.login.token);
+            this.props.getListingsData("my-listings", this.props.auth.token);
         } else if (this.props.cat) {
             // Get the listings that match the category supplied by the router
             this.props.getListingsData(this.props.cat);
@@ -30,7 +30,7 @@ class Listings extends Component {
         if (this.props.cat !== nextProps.cat) {
             if (nextProps.cat === "my-listings") {
                 // Get the user's listings
-                this.props.getListingsData("my-listings", this.props.login.token);
+                this.props.getListingsData("my-listings", this.props.auth.token);
             } else if(nextProps.cat) {
                 // Get the listings that match the category supplied by the router
                 this.props.getListingsData(nextProps.cat);
@@ -93,7 +93,7 @@ class Listings extends Component {
 function mapStateToProps(state) {
     return {
         listingsData: state.listings,
-        login: state.login
+        auth: state.auth
     }
 }
 

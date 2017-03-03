@@ -68,6 +68,7 @@ router.post('/login', (req, res, next) => {
         if (error) throw error;
         if (results.length === 0) {
             res.json({
+                isLoggedIn: false,
                 msg: 'badUsername' // Not a valid username
             });
         } else {
@@ -77,6 +78,7 @@ router.post('/login', (req, res, next) => {
                 var insertToken = `UPDATE users SET token=?, token_exp=DATE_ADD(NOW(), INTERVAL 1 HOUR) WHERE username=?`;
                 connection.query(insertToken, [token, username], (error2, results2) => {
                     res.json({
+                        isLoggedIn: true,
                         msg: 'loginSuccess',
                         name: results[0].username,
                         token: token // Found user and password is validated
@@ -84,6 +86,7 @@ router.post('/login', (req, res, next) => {
                 });
             } else {
                 res.json({
+                    isLoggedIn: false,
                     msg: 'wrongPassword' // Found user but password doesn't match
                 });
             }
@@ -96,10 +99,11 @@ router.post('/login', (req, res, next) => {
 router.post('/logout', (req, res, next) => {
     var token = req.body.token;
     var destroyTokenQuery = `UPDATE users SET token=NULL, token_exp=NULL WHERE token=?`;
-    connectin.query(destroyTokenQuery, [token], (error, results) => {
+    connection.query(destroyTokenQuery, [token], (error, results) => {
         if (error) throw error;
+        console.log(results);
         res.json({
-            msg: 'logoutSuccess'
+            isLoggedIn: false
         });
     });
 });

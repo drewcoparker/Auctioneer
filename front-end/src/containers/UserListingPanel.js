@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import { connect } from 'react-redux';
 
 class UserListingPanel extends Component {
 
     render() {
-        if (this.props.loggedIn) {
+        if ((this.props.auth !== null) && (this.props.auth.isLoggedIn)) {
             return(
                 <div className='sub-menu-left'>
                     <div><Link to='/create'>Create listing</Link></div>
@@ -21,5 +22,10 @@ class UserListingPanel extends Component {
     }
 }
 
+function mapStateToProps(state) {
+    return {
+        auth: state.auth
+    }
+}
 
-export default UserListingPanel;
+export default connect(mapStateToProps, null)(UserListingPanel);

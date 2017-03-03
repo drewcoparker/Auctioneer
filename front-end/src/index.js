@@ -42,7 +42,7 @@ const store = createStore(
 // state to local storage.
 store.subscribe(() => {
     saveState({
-        login: store.getState().auth
+        auth: store.getState().auth
     });
 });
 

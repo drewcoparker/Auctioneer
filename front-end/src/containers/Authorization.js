@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import LogOut from './LogOut.js';
+import { connect } from 'react-redux';
 
 class Authorization extends Component {
 
     render() {
-        if (this.props.loggedIn) {
+        if ((this.props.auth !== null) && (this.props.auth.isLoggedIn)) {
             return(
                 <div className='login'>
-                    <span>Welcome {this.props.loginName}</span>
+                    <span>Welcome {this.props.auth.name}</span>
                     <LogOut />
                 </div>
             )
@@ -22,4 +23,10 @@ class Authorization extends Component {
     }
 }
 
-export default Authorization;
+function mapStateToProps(state) {
+    return {
+        auth: state.auth
+    }
+}
+
+export default connect(mapStateToProps, null)(Authorization);

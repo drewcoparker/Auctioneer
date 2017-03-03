@@ -23,16 +23,16 @@ class Navbar extends Component {
     }
 
     componentDidMount() {
-        var login = this.props.login;
-        if (login !== null) {
-            var msg = this.props.login.msg;
-            if (msg === 'loginSuccess') {
-                this.setState({
-                    isLoggedIn: true,
-                    loginName: this.props.login.name
-                })
-            }
-        }
+        // var login = this.props.login;
+        // if (login !== null) {
+        //     var msg = this.props.login.msg;
+        //     if (msg === 'loginSuccess') {
+        //         this.setState({
+        //             isLoggedIn: true,
+        //             loginName: this.props.login.name
+        //         })
+        //     }
+        // }
     }
 
     openModal() {
@@ -77,15 +77,11 @@ class Navbar extends Component {
                         </Form>
                     </div>
                     <div className='auth'>
-                        <Authorization
-                            loggedIn={this.state.isLoggedIn}
-                            loginName={this.state.loginName}
-                        />
+                        <Authorization />
                     </div>
                 </div>
                 <div className='sub-menu'>
-                    <UserListingPanel
-                        loggedIn={this.state.isLoggedIn} />
+                    <UserListingPanel />
                     <div className='sub-menu-right'>
                         <div className='category'><Link to='/items/automotive'>Automotive</Link></div>
                         <div className='category'><Link to='/items/backpacking'>Backpacking Gear</Link></div>
