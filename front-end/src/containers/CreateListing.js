@@ -3,6 +3,7 @@ import { Form, FormGroup, ControlLabel, FormControl, Button, InputGroup, HelpBlo
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import CreateListingAction from '../actions/CreateListingAction';
+import { browserHistory } from 'react-router';
 
 class CreateListing extends Component {
     constructor(props) {
@@ -31,6 +32,8 @@ class CreateListing extends Component {
             end: end,
             start: start
         });
+
+        browserHistory.push('/');
     }
 
     render() {
@@ -89,7 +92,7 @@ class CreateListing extends Component {
 
 function mapStateToProps(state) {
     return {
-        loginData: state.login
+        loginData: state.auth
     }
 }
 

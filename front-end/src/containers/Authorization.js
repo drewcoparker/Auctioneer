@@ -9,7 +9,7 @@ class Authorization extends Component {
         if ((this.props.auth !== null) && (this.props.auth.isLoggedIn)) {
             return(
                 <div className='login'>
-                    <span>Welcome {this.props.auth.name}</span>
+                    <span>{this.props.auth.name}</span>
                     <LogOut />
                 </div>
             )

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Form, FormGroup, ControlLabel, FormControl, Button, Col } from 'react-bootstrap';
 import { bindActionCreators } from 'redux';
+import { browserHistory } from 'react-router';
 import { connect } from 'react-redux';
 import RegisterAction from '../actions/RegisterAction';
 
@@ -11,6 +12,22 @@ class Register extends Component {
             registrationResponse: ''
         }
         this.handleRegistrationSubmit = this.handleRegistrationSubmit.bind(this);
+    }
+
+    componentWillReceiveProps(nextProps){
+        console.log(this.props.registerResponse.msg);
+        // if (this.props.cat !== nextProps.cat) {
+        //     if (nextProps.cat === "my-listings") {
+        //         // Get the user's listings
+        //         this.props.getListingsData("my-listings", this.props.auth.token);
+        //     } else if(nextProps.cat) {
+        //         // Get the listings that match the category supplied by the router
+        //         this.props.getListingsData(nextProps.cat);
+        //     } else {
+        //         // Get all listings
+        //         this.props.getListingsData("Home");
+        //     }
+        // }
     }
 
     handleRegistrationSubmit(event) {
