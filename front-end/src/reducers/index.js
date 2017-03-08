@@ -6,6 +6,8 @@ import ListingItemReducer from './ListingItemReducer';
 import BidReducer from './BidReducer';
 import CreateListingReducer from './CreateListingReducer';
 
+// The master reducer. All actions flow through the master reducer which then
+// returns a new version of the state tree, aka, the store.
 const masterReducer = combineReducers({
     listings: GetListingsReducer,
     register: RegisterReducer,
