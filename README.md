@@ -4,4 +4,6 @@ Auctioneer is a full-stack bidding site similar to Ebay. Not intended for public
 
 ## Technology
 
-`React.js` with `Redux` provides or views and controllers for the front-end.
+`React` with `Redux` is the key paradigm driving the front-end of Auctioneer. View rendering is handled by `React` component classes. Each is patched into the `Redux` store and will receive a fresh copy of state every time the view updates. These components represent the various elements that make up the page, the navbar, for instance, or each auction item. All combined, they make up the entire view.
+
+### Lifecycle
