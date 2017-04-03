@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Form, FormGroup, FormControl, Button } from 'react-bootstrap';
 import { connect } from 'react-redux';
 // import Modal from 'react-modal';
-import logo from '../../public/images/ebay.png';
+import logo from '../../public/images/logo.png';
 import Authorization from './Authorization.js'
 import UserListingPanel from './UserListingPanel.js'
 import { Link } from 'react-router';
@@ -59,7 +59,7 @@ class Navbar extends Component {
                         <Link to='/'><img src={logo} role="presentation"/></Link>
                     </div>
 
-                    <div className='search-form'>
+                    {/*<div className='search-form'>
                         <Form inline onSubmit={this.handleSearchSubmit}>
                             <FormGroup>
                                 <FormControl
@@ -75,7 +75,8 @@ class Navbar extends Component {
                                 Search
                             </Button>
                         </Form>
-                    </div>
+                    </div>*/}
+                    
                     <div className='auth'>
                         <Authorization />
                     </div>

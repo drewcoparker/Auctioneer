@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Form, FormGroup, ControlLabel, FormControl, Button, Col } from 'react-bootstrap';
 import { bindActionCreators } from 'redux';
-import { browserHistory } from 'react-router';
+// import { browserHistory } from 'react-router';
 import { connect } from 'react-redux';
 import RegisterAction from '../actions/RegisterAction';
 

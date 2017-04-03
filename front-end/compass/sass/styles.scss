@@ -14,16 +14,18 @@ body {
 }
 
 .nav-container {
-
+    display: flex;
     height: 70px;
     border-bottom: 1px solid rgba(0,0,0,.1);
 }
 
 .brand {
+    align-self: flex-start;
+    padding: 20px 0;
     display: inline-block;
     width: 20%;
     img {
-        width: 130px;
+        width: 180px;
     }
 }
 
@@ -42,9 +44,11 @@ body {
 }
 
 .auth {
-    display: inline-block;
-    width: 20%;
-    text-align: right;
+    margin-left: auto;
+    padding-top: 25px;
+    // display: inline-block;
+    // width: 20%;
+    // text-align: right;
 }
 
 .login, .logout {
